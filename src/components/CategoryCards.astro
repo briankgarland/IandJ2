@@ -1,0 +1,89 @@
+---
+import { contentfulClient } from "../lib/contentful";
+import type { Category } from "../lib/contentful";
+
+const categories = await contentfulClient.getEntries<Category>({
+  content_type: "category",
+});
+
+const cardCategories = categories.items.map((item) => {
+  const { name, description, imageUrl, displayCard } = item.fields;
+  return {
+    name,
+    description,
+    imageUrl,
+    displayCard
+  };
+});
+---
+<div class="card-wrapper">
+{cardCategories.map((card) => (
+  (card.displayCard) &&
+
+    <div class="card"> 
+      <a href={`/our-range/${card.name}/`}>
+      <h2>{card.name}</h2>
+      <p>{card.description}</p>
+      <div class="image-wrapper">
+        <img src={card.imageUrl} alt={card.name}>
+      </div>
+      </a>
+    </div>
+  
+
+))}
+</div>
+
+
+<style>
+  .card-wrapper {
+  position: relative;
+  transform: translateY(-130px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.card {
+  background-color: #fff;
+  max-width: 350px;
+  position: relative;
+  border: 1px solid #d2d2d2;
+  text-align: center;
+  box-shadow: 0 0 5px 0 rgb(0,0,0 / 25%);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+h2 {
+  color: #d51805;
+  position: relative;
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+p {
+  min-height: 125px;
+  padding-bottom: 40px;
+  color: black;
+  font-size: 14px;
+  
+}
+.image-wrapper {
+  display: flex;
+  min-height: 250px;
+  justify-content: center;
+}
+img {
+	width: 150px;
+  object-fit: contain;
+  height: 304px;
+  max-width: 460px;
+}
+
+
+</style>
+ 

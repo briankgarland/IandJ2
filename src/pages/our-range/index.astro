@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
+import Title from "../../components/title.astro";
+import CategoryCards from "../../components/CategoryCards.astro";
+
+import { contentfulClient } from "../../lib/contentful";
+import type { Category } from "../../lib/contentful";
+
+const categories = await contentfulClient.getEntries<Category>({
+  content_type: "category",
+});
+
+const prodCategories = categories.items.map((item) => {
+  const { name, headerNav } = item.fields;
+  return {
+    name,
+    headerNav
+  };
+});
+
+const pageTitle = "Product Categories"
+---
+<Layout pageTitle={pageTitle}>
+  <Breadcrumbs>
+    <BreadcrumbsItem 
+      href="/"
+      label="Home"
+    />
+    <BreadcrumbsItem
+      currentPage={true}
+      label={pageTitle}
+    />
+  </Breadcrumbs>
+  <Title pageTitle={pageTitle} />
+<CategoryCards />
+<ul class="cat-nav">
+  {prodCategories.map((cats) => (
+  (cats.headerNav) &&
+  <li>
+      <a href={`/our-range/${cats.name}/`}>
+      <h3>{cats.name}</h3>
+      </a>
+  </li>
+  ))}
+</ul>
+</Layout>
+
+<style>
+
+</style>

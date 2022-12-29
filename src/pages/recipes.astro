@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
+import Title from "../components/title.astro";
+
+const pageTitle = "Recipes";
+---
+
+<Layout title={pageTitle}>
+  <Breadcrumbs>
+    <BreadcrumbsItem 
+      href="/"
+      label="Home"
+    />
+    <BreadcrumbsItem
+      currentPage={true}
+      label={pageTitle}
+    />
+  </Breadcrumbs>
+  <Title pageTitle={pageTitle} />
+</Layout>
+
+

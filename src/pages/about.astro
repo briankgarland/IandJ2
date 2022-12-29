@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
+import Title from "../components/title.astro";
+
+const pageTitle = "About Us";
+---
+
+<Layout pageTitle={pageTitle}>
+  <Breadcrumbs>
+    <BreadcrumbsItem 
+      href="/"
+      label="Home"
+    />
+    <BreadcrumbsItem
+      currentPage={true}
+      label={pageTitle}
+    />
+  </Breadcrumbs>
+  <Title pageTitle={pageTitle} />
+  <div class="text-wrapper">
+    <p>
+        In 1910, fisherman George Irvin and Carl Johnson formed I&J to tackle the world's deepest seas in search of the freshest seafood. This legacy lives on over a century later. 
+    </p>
+    <p>
+        Our seafood is filleted and snap frozen at sea within hours of every catch, maintaining the fresh tasting goodness our customers expect. 
+    </p>
+    <p>
+        We sail to the cleanest, pristine oceans of New Zealand and Alaska for our catch. This ensures we responsibly deliver the freshest, most natural tasting seafood for you.
+    </p>
+</div>
+</Layout>
+
+<style lang="scss">
+      .text-wrapper {
+        display: grid;
+        text-align: center;
+        padding: 20px 10px;
+        p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    }
+</style>

@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
+import Title from "../components/title.astro";
+
+import { contentfulClient } from "../lib/contentful";
+import type { Product } from "../lib/contentful";
+
+const prods = await contentfulClient.getEntries<Product>({
+  content_type: "product",
+});
+
+const products = prods.items.map((item) => {
+  const { sku, name, description, imageurl, slug } = item.fields;
+  return {
+    sku,
+    name,
+    description,
+    imageurl,
+    slug
+  };
+});
+
+const pageTitle = "Product List";
+---
+
+  {products.map((product) => (
+    <li>
+      <a href={`/products/${product.slug}/`}>
+        <h2>{product.name}</h2>
+      </a>
+      <p>{product.sku}</p>
+  <img src={product.imageurl} alt="">
+      <p>{product.description}</p>
+    </li>
+  ))}
+
+
+<style>
+img {
+	height: 200px;
+	width: 200px
+}
+</style>
+ 

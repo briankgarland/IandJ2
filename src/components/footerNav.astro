@@ -1,0 +1,49 @@
+---
+import Logo from '../components/logo.astro';
+import { contentfulClient } from "../lib/contentful";
+import type { Category } from "../lib/contentful";
+
+const categories = await contentfulClient.getEntries<Category>({
+  content_type: "category",
+});
+
+const prodCategories = categories.items.map((item) => {
+  const { name, footerNav } = item.fields;
+  return {
+    name,
+    footerNav
+  };
+});
+---
+
+<nav class="footer-nav">
+  <div class="logo"><Logo /></div>
+    <ul>
+        {prodCategories.map((cats) => (
+        (cats.footerNav) &&
+          <li>
+              <a href={`/our-range/${cats.name}/`}>
+              <h3>{cats.name}</h3>
+              
+              </a>
+          </li>       
+        ))}
+    </ul>
+</nav>
+ 
+<style>
+  .footer-nav {
+    margin: 10px 0px;
+  }
+.logo {
+  width: 89px;
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+}
+li {
+  list-style-type: none;
+}
+</style>

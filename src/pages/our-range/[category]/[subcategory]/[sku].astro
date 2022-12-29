@@ -1,0 +1,54 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
+import Title from "../../../../components/title.astro";
+import CategoryCards from "../../../../components/CategoryCards.astro";
+
+import { contentfulClient } from "../../../../lib/contentful";
+import type { Product } from "../../../../lib/contentful";
+
+// Create Product Pages
+export async function getStaticPaths() {
+    const products = await contentfulClient.getEntries<Product>({
+    content_type: "product",
+    });
+  
+  return products.items.map((item) => { 
+        return {
+            params: { 
+                category: item.fields.category,
+                subcategory: item.fields.subcategory,
+                sku: item.fields.sku,
+            },
+            props: { 
+                name: item.fields.name,
+            }
+        };
+    });
+};
+
+const { category, subcategory, sku } = Astro.params; // params passed in `getStaticPaths`
+const { name } = Astro.props;
+---
+
+<Layout pageTitle={subcategory}>
+    <Breadcrumbs>
+      <BreadcrumbsItem 
+        href="/"
+        label="Home"
+      />
+      <BreadcrumbsItem
+      href=".."
+      label={category}
+      />
+      <BreadcrumbsItem
+        href="."
+        label={subcategory}
+      />
+      <BreadcrumbsItem
+      currentPage={true}
+      label={sku}
+    />
+    </Breadcrumbs>
+    <Title pageTitle={name} />
+</Layout>

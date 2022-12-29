@@ -1,0 +1,128 @@
+---
+import Logo from '../components/logo.astro';
+import { contentfulClient } from "../lib/contentful";
+import type { Category } from "../lib/contentful";
+import { Icon } from 'astro-icon';
+import type { APIRoute } from 'astro';
+
+const categories = await contentfulClient.getEntries<Category>({
+  content_type: "category",
+});
+
+const prodCategories = categories.items.map((item) => {
+  const { name, headerNav } = item.fields;
+  return {
+    name,
+    headerNav
+  };
+});
+---
+
+<nav class="header-nav">
+    <div class="logo"><Logo /></div>
+    <ul class="cat-nav">
+        {prodCategories.map((cats) => (
+        (cats.headerNav) &&
+        <li>
+            <a href={`/our-range/${cats.name}/`}>
+            <h3>{cats.name}</h3>
+            </a>
+        </li>
+        ))}
+    </ul>
+    <ul class="page-nav">
+            <li>
+                <a href={"../about"}>
+                    <h3>   
+                        About Us
+                    </h3>
+                </a>
+            </li>
+            <li>
+                <a href={"../ebooks"}>
+                    <h3>   
+                        eBooks
+                    </h3>
+                </a>
+            </li>
+            <li>
+                <a href={"../contactus"}>
+                    <h3>   
+                        Contact Us
+                    </h3>
+                </a>
+            </li>
+            <li>
+                <a href={"../recipes"}>
+                    <h3>   
+                        Recipes
+                    </h3>
+                </a>
+            </li>
+    <ul class="social-nav">
+        <li>
+            <Icon name="ri:facebook-box-fill" />
+        </li>
+        <li>
+            <Icon name="mdi:instagram" />
+        </li>
+        <li>
+            <Icon name="mdi:search" />
+        </li>
+    </ul>
+    </ul>
+</nav>
+ 
+
+<style lang="scss">
+
+
+.header-nav > ul {
+    display: none;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    width: 55px;
+}
+
+
+@media (min-width: 768px) {
+    .header-nav {
+    display: flex;
+    height: 75px;
+    padding: 10px 0px;
+        ul {
+            display: flex;
+        }
+    }
+    [astro-icon] {
+        color: #d51805;
+        width: 20px;
+    }
+    .page-nav {
+        margin-left: auto;
+    }
+    .social-nav li {
+        margin-right: 5px;
+    }
+    .logo {
+    width: 80px;
+    }
+    ul {
+    align-items: center;
+    li {
+        list-style-type: none;
+        margin-right: 20px;
+        margin-top: 5px; 
+        a, h3 {
+            text-decoration: none;
+            color: #d51805;
+            font-size: 12px;
+        } 
+    }
+    
+}
+}
+
+</style>

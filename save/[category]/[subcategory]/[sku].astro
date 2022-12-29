@@ -1,0 +1,25 @@
+---
+import { contentfulClient } from "../../../../lib/contentful";
+import type { Product } from "../../../../lib/contentful";
+
+export async function getStaticPaths() {
+const products = await contentfulClient.getEntries<Product>({
+    content_type: "product",
+});
+
+const skus = products.items.map((item) => {
+  const { sku, name } = item.fields;
+  return {
+    params: {
+        sku: sku,
+        name: name
+    }
+  };
+});
+};
+
+const { sku, name } = Astro.params; // params passed in `getStaticPaths`
+//const { title } = Astro.props; // props passed in `getStaticPaths`
+---
+
+<h2>SKU: {sku}</h2>

@@ -1,0 +1,67 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
+import Title from "../../../components/title.astro";
+import CategoryCards from "../../../components/CategoryCards.astro";
+
+import { contentfulClient } from "../../../lib/contentful";
+import type { Category } from "../../../lib/contentful";
+
+// Create Category Folders
+export async function getStaticPaths() {
+    const categories = await contentfulClient.getEntries<Category>({
+    content_type: "category",
+    });
+
+  const prodCategories = categories.items.map((item) => ({
+      params: { category: item.fields.name },
+      props: { category: item.fields.name }
+    }));
+    return prodCategories;
+};
+const { category } = Astro.props;
+
+// Get Sub Categories
+import type { Subcategory } from "../../../lib/contentful";
+
+const subcategories = await contentfulClient.getEntries<Subcategory>({
+  content_type: "subcategory",
+});
+
+const prodSubCategories = subcategories.items.map((item) => {
+  const { name, headerNav } = item.fields;
+  return {
+    name,
+    headerNav
+  };
+});
+
+---
+
+<Layout pageTitle={category}>
+  <Breadcrumbs>
+    <BreadcrumbsItem 
+      href="/"
+      label="Home"
+    />
+    <BreadcrumbsItem
+      currentPage={true}
+      label={category}
+    />
+  </Breadcrumbs>
+  <Title pageTitle={category} />
+<ul class="cat-nav">
+    {prodSubCategories.map((subcats) => (
+    (subcats.headerNav) &&
+    <li>
+        <a href={`/our-range/${category}/${subcats.name}/`}>
+        <h3>{subcats.name}</h3>
+        </a>
+    </li>
+    ))}
+</ul>
+</Layout>
+
+<style>
+
+</style>

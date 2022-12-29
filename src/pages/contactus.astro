@@ -1,0 +1,166 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
+import Title from "../components/title.astro";
+
+const pageTitle = "Contact Us";
+---
+
+<Layout title={pageTitle}>
+  <Breadcrumbs>
+    <BreadcrumbsItem 
+      href="/"
+      label="Home"
+    />
+    <BreadcrumbsItem
+      currentPage={true}
+      label={pageTitle}
+    />
+  </Breadcrumbs>
+  <Title pageTitle={pageTitle} />
+  <h4>
+    We really are humbled by your feedback, it keeps us inspired to do our very best!<br>
+    If there is something you’d like to share with us please fill out the form below.
+  </h4>
+  <h4>
+    <span>
+      SEND ENQUIRY
+    </span>
+  </h4>
+
+  <div class="form-wrapper">
+    <form action="" method="POST" style="display:block;">
+      <input type=hidden name='captcha_settings' value='{"keyname":"SAPL","fallback":"true","orgId":"00D60000000J7C2","ts":""}'>
+      <input type=hidden name="orgid" value="00D60000000J7C2">
+      <input type=hidden name="retURL" value="https://IandJ.com.au/contact-us/thank-you">
+      <input type=hidden name="recordType" name="recordType" value="0125x000000EAXG">
+      <input type=hidden name="00N5x00000F5Vqo" name="00N5x00000F5Vqo" value="IandJ">
+    
+      <div class="form-group my-4">
+          <label for="00N5x00000F5VrW">Title</label>
+        <select class="form-control form-control-lg" id="00N5x00000F5VrW" name="00N5x00000F5VrW" title="Title">
+          <option value="">Please Select</option>
+          <option value="Dr">Dr</option>
+          <option value="Master">Master</option>
+          <option value="Miss">Miss</option>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Ms">Ms</option>
+          <option value="Prof">Prof</option>
+        </select>
+      </div>
+      <div class="form-group my-4">
+        <label for="00N5x00000F5Vr1">First Name *</label>
+        <input class="form-control form-control-lg" id="00N5x00000F5Vr1" maxlength="32" name="00N5x00000F5Vr1" size="20" type="text" required/>
+      </div>
+      <div class="form-group my-4">
+        <label for="00N5x00000F5VrS">Last Name *</label>
+        <input class="form-control form-control-lg" id="00N5x00000F5VrS" maxlength="32" name="00N5x00000F5VrS" size="20" type="text"  required/>
+      </div>
+    
+      <div class="form-group my-4">
+        <label for="00N5x00000F5VrO">Street Address *</label>
+        <input class="form-control form-control-lg" id="00N5x00000F5VrO" maxlength="255" name="00N5x00000F5VrO" size="20" type="text"  required/>
+      </div>
+    
+      <div class="form-group my-4">
+        <label for="00N5x00000F5Vqf">City *</label>
+        <input class="form-control form-control-lg" id="00N5x00000F5Vqf" maxlength="255" name="00N5x00000F5Vqf" size="20" type="text" required/>
+      </div>
+    
+      <div class="form-group my-4">
+        <label for="00N5x00000F5VrN">State *:</label>
+        <select class="form-control form-control-lg" id="00N5x00000F5VrN" name="00N5x00000F5VrN" title="State"  required>
+          <option value="">Please Select</option>
+          <option value="ACT">ACT</option>
+          <option value="NSW">NSW</option>
+          <option value="NT">NT</option>
+          <option value="QLD">QLD</option>
+          <option value="SA">SA</option>
+          <option value="TAS">TAS</option>
+          <option value="VIC">VIC</option>
+          <option value="WA">WA</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group my-4">
+        <label for="00N5x00000F5Vqk">Country (if outside Australia)</label>
+        <select class="form-control form-control-lg" id="00N5x00000F5Vqk" name="00N5x00000F5Vqk" title="Country"  required>
+          <option selected="selected" value="Australia">Australia</option>
+          <option value="New Zealand">New Zealand</option>
+          <option value="Italy">Italy</option>
+          <option value="Japan">Japan</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="USA">USA</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    
+      <div class="form-group my-4">
+        <label for="00N5x00000F5Vr7">Postcode *</label>
+        <input class="form-control form-control-lg" id="00N5x00000F5Vr7" maxlength="10" name="00N5x00000F5Vr7" size="20" type="text"  required/>
+      </div>
+      <div class="form-group my-4">
+        <label for="00N5x00000F5Vr0">Phone</label>
+        <input class="form-control form-control-lg" id="00N5x00000F5Vr0" maxlength="40" name="00N5x00000F5Vr0" size="20" type="text" />
+      </div>
+      <div class="form-group my-4">
+        <label for="00N5x00000F5Vqr">Email *</label>
+        <input class="form-control form-control-lg" id="00N5x00000F5Vqr" maxlength="80" name="00N5x00000F5Vqr" size="20" type="email" required />
+      </div>
+    
+      <div class="form-group my-4">
+        <label for="subject">Category of Feedback</label>
+        <select class="form-control form-control-lg" id="subject" name="subject" title="Subject">
+          <option value=" ">Please Select</option>
+          <option value="Employment">Employment</option>
+          <option value="Food Service">Food Service</option>
+          <option value="Product Information">Product Information</option>
+          <option value="Recipe Club">Recipe Club</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group my-4">
+          <label for="description">Comments *</label>
+          <textarea class="form-control form-control-lg" id="description"  name="description" rows="3"  required></textarea>
+      </div>
+      <div class="form-group my-4">
+        <input type="hidden" id="external" name="external" value="1" />
+        <div class="g-recaptcha" data-sitekey="6LeVpikfAAAAAHhJtANKXpShaSTUv3K-JGn0-wX0" data-callback="enableFormBtn" data-expired-callback="disableFormBtn" data-error-callback="disableFormBtn"></div>
+      </div>
+    
+      <input type="submit" class="btn btn-primary" name="submit" disabled="disabled">
+    
+      </form>
+  </div>
+
+</Layout>
+
+<style lang="scss">
+  h4 {
+    margin: 40px auto;
+    text-align: center;
+  }
+  .form-wrapper {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    label {
+      display: inline-block;
+      margin-bottom: .5rem;
+    }
+  }
+</style>
