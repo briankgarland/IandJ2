@@ -2,10 +2,12 @@
 import Layout from "../../../../layouts/Layout.astro";
 import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
 import Title from "../../../../components/title.astro";
-import CategoryCards from "../../../../components/CategoryCards.astro";
+import ProdCards from "../../../../components/ProdCards.astro";
 
 import { contentfulClient } from "../../../../lib/contentful";
 import type { Subcategory } from "../../../../lib/contentful";
+
+const { subcategory, parentcategory } = Astro.props;
 
 // Create Subcategory Folders
 export async function getStaticPaths() {
@@ -24,28 +26,9 @@ export async function getStaticPaths() {
     }));
     return prodSubCategories;
 };
-const { subcategory, parentcategory } = Astro.props;
-
-// Get Products
-import type { Product } from "../../../../lib/contentful";
-
-const products = await contentfulClient.getEntries<Product>({
-  content_type: "product",
-});
-
-const subcatproducts = products.items.map((item) => {
-  const { sku, name, category, subcategory } = item.fields;
-  return {
-    sku,
-    name,
-    category,
-    subcategory
-  };
-});
-
 ---
 
-<Layout pageTitle={subcategory}>
+<Layout pageTitle="Our Range | I&J">
   <Breadcrumbs>
     <BreadcrumbsItem 
       href="/"
@@ -61,17 +44,5 @@ const subcatproducts = products.items.map((item) => {
     />
   </Breadcrumbs>
   <Title pageTitle={subcategory} />
-<ul class="subcat-nav">
-    {subcatproducts.map((prod) => (
-    <a href=".\${prod.sku}">
-        <li>
-            <h3>{prod.sku}</h3>
-        </li>
-    </a>
-    ))}
-</ul>
+  <ProdCards subcat={subcategory}/>
 </Layout> 
-
-<style>
-
-</style>

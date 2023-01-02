@@ -70,9 +70,6 @@ h6 {
 }
 
 /* Other global styles */
-/* .breadcrumb-wrapper {
-  width: calc(100% - 2rem);
-  max-width: 1110px;
-  margin-inline: auto;
-  margin: 0;
-} */
+main {
+  background-image: url(https://simplot-media.azureedge.net/-/media/themes/sapl/brands/australia/iandj/images/Backgrounds/content-bg.jpg);
+}

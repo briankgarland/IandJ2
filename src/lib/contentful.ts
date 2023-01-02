@@ -1,4 +1,4 @@
-import contentful from "contentful";
+import contentful, { Link } from "contentful";
 import type { Document } from "@contentful/rich-text-types";
 
 export interface Product {
@@ -9,8 +9,16 @@ export interface Product {
     slug: string;
     category: string;
     subcategory: string;
+    ingredients: Document;
+    claim: any;
+    displayCard: boolean;
+    displayNew: boolean;
   }
 
+export interface Claim {
+  claimName: string;
+  claimDescription: string;
+}
 export interface Category {
     name: string;
     categorySlug: string;

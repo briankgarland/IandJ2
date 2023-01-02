@@ -1,8 +1,7 @@
 ---
 import Layout from "../../../../layouts/Layout.astro";
 import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
-import Title from "../../../../components/title.astro";
-import CategoryCards from "../../../../components/CategoryCards.astro";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 import { contentfulClient } from "../../../../lib/contentful";
 import type { Product } from "../../../../lib/contentful";
@@ -10,7 +9,7 @@ import type { Product } from "../../../../lib/contentful";
 // Create Product Pages
 export async function getStaticPaths() {
     const products = await contentfulClient.getEntries<Product>({
-    content_type: "product",
+    content_type: "product"
     });
   
   return products.items.map((item) => { 
@@ -22,13 +21,19 @@ export async function getStaticPaths() {
             },
             props: { 
                 name: item.fields.name,
+                description: documentToHtmlString(item.fields.description),
+                imageurl: item.fields.imageurl,
+                ingredients: documentToHtmlString(item.fields.ingredients),
+                ing: item.fields.ingredients,
+                newicon: item.fields.displayNew
             }
         };
     });
+
 };
 
 const { category, subcategory, sku } = Astro.params; // params passed in `getStaticPaths`
-const { name } = Astro.props;
+const { name, description, imageurl, ingredients, newicon } = Astro.props;
 ---
 
 <Layout pageTitle={subcategory}>
@@ -50,5 +55,97 @@ const { name } = Astro.props;
       label={sku}
     />
     </Breadcrumbs>
-    <Title pageTitle={name} />
+    <div class="prod-head">
+        <div class="prod-img">
+            {newicon && (<img src="https://iandj.com.au/-/media/project/sapl/brands/australia/iandj/images/icons/new.svg" class="new">)}
+            <img src={imageurl} alt="Product Image" class="prod-img">
+        </div>
+        <div class="prod-info">
+            <h1>{name}</h1>
+            <p set:html={description} />
+        </div>
+    </div>
+    <div class="prod-labels">
+        <div class="ing">Ingredients</div>
+        <div class="nut">Nutritional Information</div>
+    </div>
+    <div class="prod-tech-info">
+        <div set:html={ingredients} class="ing-text"/>
+        <div set:html={ingredients} class="claim-text"/>
+    </div>
 </Layout>
+
+<style lang="scss">
+:global(main) {
+    background-image: none;
+}
+.prod-head {
+    padding: 40px 15px;
+    margin-inline: auto;
+    max-width: 1140px;
+}
+.prod-img {
+    position: relative;
+    flex: 0 0 50%;
+    display: grid;
+    place-content: center;
+    & img {
+        max-height: 400px;
+    }
+}
+.prod-info {
+    & h1 {
+        color: red;
+        margin-bottom: 10px
+    }
+}   
+.prod-labels {
+    & > div {
+        flex: 0 0 50%;
+        border: 1px solid black;
+        text-align: center;
+        font-weight: bold;
+        display: grid;
+        place-content: center;
+    }
+    & .ing {
+        background-color: black;
+        color: white;
+        padding: 10px;
+    }
+    & .nut {
+        padding: 10px;
+    }
+} 
+.prod-tech-info {
+    padding: 10px;
+    font-size: 12px;
+    & > div {
+        flex: 0 0 50%;
+    }
+}
+.ing-text, .claim-text {
+    padding: 10px;
+    font-size: 12px;
+}
+.new {
+  position: absolute;
+  width: 40px;
+  height: auto;
+  top: -20px;
+  left: -10px;
+  z-index: 1;
+}
+@media (min-width: 768px) {
+    .prod-head {
+        display: flex;
+    }
+    .prod-labels, .prod-tech-info {
+        display: flex
+    }
+    .prod-labels .ing, .prod-labels .nut {
+        padding: 20px;
+    }
+}
+</style>
+

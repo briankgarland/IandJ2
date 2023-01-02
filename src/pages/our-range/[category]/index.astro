@@ -2,10 +2,13 @@
 import Layout from "../../../layouts/Layout.astro";
 import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
 import Title from "../../../components/title.astro";
-import CategoryCards from "../../../components/CategoryCards.astro";
+import SubCatCards from "../../../components/SubCatCards.astro";
+import {slugify} from "../../../js/utils.js";
 
 import { contentfulClient } from "../../../lib/contentful";
 import type { Category } from "../../../lib/contentful";
+
+const { category } = Astro.props;
 
 // Create Category Folders
 export async function getStaticPaths() {
@@ -19,26 +22,21 @@ export async function getStaticPaths() {
     }));
     return prodCategories;
 };
-const { category } = Astro.props;
 
-// Get Sub Categories
-import type { Subcategory } from "../../../lib/contentful";
-
-const subcategories = await contentfulClient.getEntries<Subcategory>({
-  content_type: "subcategory",
+// Get all Categories for CatNav
+const categories = await contentfulClient.getEntries<Category>({
+  content_type: "category",
 });
-
-const prodSubCategories = subcategories.items.map((item) => {
-  const { name, headerNav } = item.fields;
+const cardCategories = categories.items.map((item) => {
+  const { name, displayCard } = item.fields;
   return {
     name,
-    headerNav
+    displayCard
   };
 });
-
 ---
 
-<Layout pageTitle={category}>
+<Layout pageTitle="Our Range | I&J">
   <Breadcrumbs>
     <BreadcrumbsItem 
       href="/"
@@ -49,19 +47,66 @@ const prodSubCategories = subcategories.items.map((item) => {
       label={category}
     />
   </Breadcrumbs>
-  <Title pageTitle={category} />
-<ul class="cat-nav">
-    {prodSubCategories.map((subcats) => (
-    (subcats.headerNav) &&
-    <li>
-        <a href={`/our-range/${category}/${subcats.name}/`}>
-        <h3>{subcats.name}</h3>
-        </a>
-    </li>
+  <Title pageTitle="Our Range" />
+  <div class="catnav-mobile">
+    <select>
+      {cardCategories.map((card) => (
+      (card.displayCard) &&
+        <option value="..\${slugify(card.name)}" selected="">{card.name}</option>
+      ))}
+    </select>
+  </div>
+  <div class="catnav-desktop">
+    {cardCategories.map((card) => (
+    (card.displayCard) &&
+    <a href="..\${slugify(card.name)}">
+      <p>{card.name}</p>
+    </a>
     ))}
-</ul>
+  </div>
+  <SubCatCards category={category}/>
 </Layout>
 
-<style>
+<style lang="scss">
+.catnav-mobile {
+  margin: 0 auto;
+  & select {
+  margin-top: -15px;
+  margin-bottom: 30px;
+  padding: 20px;
+  font-size: 16px;
+  min-width: 300px;
+  text-align: center;
+  }
+}
+.catnav-desktop {
+  display: none;
+  justify-content: center;
+  margin-top: -15px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  & a {
+      text-decoration: none;
+      color: #000;
+    }
+  & p{
+    padding: 20px 80px;
+    border: 1px black solid;
+    background-color: white;
 
+  }
+}
+.black {
+  background-color: #000;
+  color: #fff
+  ;
+}
+@media (min-width: 768px) {
+  .catnav-mobile {
+    display: none;
+  }
+  .catnav-desktop {
+    display: flex;
+  }
+}
 </style>

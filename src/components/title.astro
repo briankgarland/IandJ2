@@ -1,28 +1,29 @@
 ---
-const { pageTitle } = Astro.props;
+interface Props {
+    pageTitle: string;
+    usebgImage?: boolean;
+}
+
+const { pageTitle="Page Title", usebgImage=false } = Astro.props;
 ---
 
-<div class="title-wrapper">
+<div class:list={["title-wrapper", {"title-bg": usebgImage}]}>
     <h1>{pageTitle}</h1>
 </div>
 
 <style lang="scss">
-    .title-wrapper {
-        background-image: url(https://simplot-media.azureedge.net/-/media/themes/sapl/brands/australia/iandj/images/Backgrounds/content-bg.jpg);
+    .title-wrapper {      
         height: 125px;
         display: grid;
         place-content: center;
         position: relative;
-
         left: 50%;
         margin-left: -50vw;
         margin-right: -50vw;
         max-width: 100vw;
-        position: relative;
         right: 50%;
         width: 100vw;
-
-        h1 {
+        & h1 {
         font-size: 18px;
         font-weight: 900;
             &::after {
@@ -37,4 +38,7 @@ const { pageTitle } = Astro.props;
             }
         }
     }
+    .title-bg {
+        background-image: url(https://simplot-media.azureedge.net/-/media/themes/sapl/brands/australia/iandj/images/Backgrounds/content-bg.jpg);
+        }
 </style>

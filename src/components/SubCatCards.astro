@@ -1,0 +1,81 @@
+---
+import { contentfulClient } from "../lib/contentful";
+import type { Subcategory } from "../lib/contentful";
+
+const { category } = Astro.props;
+
+// Pull all subcategories from Contenful.
+const subcategories = await contentfulClient.getEntries<Subcategory>({
+  content_type: "subcategory",
+});
+
+// Only display subcategory cards for current category passed in via props.
+const filteredSubCat = subcategories.items.filter(cat => cat.fields.parentCategory === category);
+
+---
+<div class="card-wrapper">
+{filteredSubCat.map((card) => (
+  (card.fields.displayCard) &&
+    <div class="card"> 
+      <a href={`/our-range/${card.fields.parentCategory}/${card.fields.name}/`}>
+      <h2>{card.fields.name}</h2>
+      <div class="image-wrapper">
+        <img src={card.fields.imageUrl} alt={card.fields.name}>
+      </div>
+      </a>
+    </div>
+))}
+</div>
+
+
+<style>
+  .card-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.card {
+  background-color: #fff;
+  width: 350px;
+  position: relative;
+  border: 1px solid #d2d2d2;
+  text-align: center;
+  box-shadow: 0 0 5px 0 rgb(0,0,0 / 25%);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+h2 {
+  color: #d51805;
+  position: relative;
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+p {
+  min-height: 125px;
+  padding-bottom: 40px;
+  color: black;
+  font-size: 14px;
+  
+}
+.image-wrapper {
+  display: flex;
+  min-height: 250px;
+  justify-content: center;
+}
+img {
+	width: 150px;
+  object-fit: contain;
+  height: 304px;
+  max-width: 460px;
+}
+
+
+</style>
+ 
