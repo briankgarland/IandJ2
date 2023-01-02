@@ -1,6 +1,9 @@
 ---
+// This is only shown on the Home page.
+
 import { contentfulClient } from "../lib/contentful";
 import type { Category } from "../lib/contentful";
+import {slugify} from "../js/utils";
 
 const categories = await contentfulClient.getEntries<Category>({
   content_type: "category",
@@ -22,6 +25,7 @@ const cardCategories = categories.items.map((item) => {
 
     <div class="card"> 
       <a href={`/our-range/${card.name}/`}>
+      <!-- <a href={`/our-range/${slugify(card.name)}/`}> -->
       <h2>{card.name}</h2>
       <p>{card.description}</p>
       <div class="image-wrapper">

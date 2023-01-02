@@ -13,6 +13,15 @@ export interface Product {
     claim: any;
     displayCard: boolean;
     displayNew: boolean;
+    packSize: string;
+    servingSize: string;
+    servingsPerPackage: string;
+    energyPerServing: string;
+    energyPer100g: string;
+    proteinPerServing: string;
+    proteinPer100g: string;
+    fatTotalPerServing: string;
+    fatTotalPer100g: string;
   }
 
 export interface Claim {

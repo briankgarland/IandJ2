@@ -22,7 +22,7 @@ export async function getStaticPaths() {
     }));
     return prodCategories;
 };
-
+ 
 // Get all Categories for CatNav
 const categories = await contentfulClient.getEntries<Category>({
   content_type: "category",

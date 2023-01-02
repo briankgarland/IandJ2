@@ -2,16 +2,19 @@
 import Layout from "../../../../layouts/Layout.astro";
 import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components';
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import ProductDisclaimer from "../../../../components/ProductDisclaimer.astro";
 
 import { contentfulClient } from "../../../../lib/contentful";
 import type { Product } from "../../../../lib/contentful";
+import type { Claim } from "../../../../lib/contentful";
 
 // Create Product Pages
 export async function getStaticPaths() {
     const products = await contentfulClient.getEntries<Product>({
     content_type: "product"
     });
-  
+    // console.log(JSON.stringify(products, null,"  "));
+    // console.table((products));
   return products.items.map((item) => { 
         return {
             params: { 
@@ -25,15 +28,36 @@ export async function getStaticPaths() {
                 imageurl: item.fields.imageurl,
                 ingredients: documentToHtmlString(item.fields.ingredients),
                 ing: item.fields.ingredients,
-                newicon: item.fields.displayNew
+                newicon: item.fields.displayNew,
+                packsize: item.fields.packSize,
+                servingsize: item.fields.servingSize,
+                servingsperpackage: item.fields.servingsPerPackage,
+                energyperserving: item.fields.energyPerServing,
+                energyper100g: item.fields.energyPer100g,
+                proteinperserving: item.fields.proteinPerServing,
+                proteinper100g: item.fields.proteinPer100g,
+                fattotalperserving: item.fields.fatTotalPerServing,
+                fattotalper100g: item.fields.fatTotalPer100g,
             }
         };
-    });
-
+    });    
 };
 
+// Get Claims (gets all claims - need to filter by sku)
+const claims = await contentfulClient.getEntries<Claim>({
+  content_type: "claim",
+});
+// console.table((claims));
+
+const allClaims = claims.items.map((claim) => {
+  const { claimName } = claim.fields;
+  return {
+    claimName
+  };
+});
+
 const { category, subcategory, sku } = Astro.params; // params passed in `getStaticPaths`
-const { name, description, imageurl, ingredients, newicon } = Astro.props;
+const { name, description, imageurl, ingredients, newicon, packsize, servingsize, servingsperpackage, energyperserving, energyper100g, proteinperserving, proteinper100g, fattotalperserving, fattotalper100g } = Astro.props;
 ---
 
 <Layout pageTitle={subcategory}>
@@ -43,11 +67,11 @@ const { name, description, imageurl, ingredients, newicon } = Astro.props;
         label="Home"
       />
       <BreadcrumbsItem
-      href=".."
+      href="../.."
       label={category}
       />
       <BreadcrumbsItem
-        href="."
+        href=".."
         label={subcategory}
       />
       <BreadcrumbsItem
@@ -66,18 +90,70 @@ const { name, description, imageurl, ingredients, newicon } = Astro.props;
         </div>
     </div>
     <div class="prod-labels">
-        <div class="ing">Ingredients</div>
-        <div class="nut">Nutritional Information</div>
+        <div onclick="showhide()" class="ing" id="ing-label">
+            Ingredients
+        </div>      
+        <div onclick="showhide()" class="nut" id="nut-label">
+            Nutritional Information
+        </div>
     </div>
-    <div class="prod-tech-info">
+    <div class="prod-tech-info" id="ing-info" style="display: flex">
         <div set:html={ingredients} class="ing-text"/>
-        <div set:html={ingredients} class="claim-text"/>
+        <ul>
+            {allClaims.map((claim) => (
+            <li class="claim-text">{claim.claimName}</li>
+            ))}
+        </ul>
     </div>
+    <div class="prod-tech-info" id="nut-info" style="display:none">
+        <div class="pack-data">
+            <ul class="nut-info-ul" style="padding-inline-start: 0;">
+              <li style="padding-inline-start: 0;">Pack Size:</li>
+              <li style="padding-inline-start: 0;">Serving Size:</li>
+              <li style="padding-inline-start: 0;">Serving per Package:</li>  
+            </ul>
+            <ul class="nut-info-ul" style="padding-inline-start: 0;">
+              <li style="padding-inline-start: 0;">{packsize}</li>
+              <li style="padding-inline-start: 0;">{servingsize}</li>
+              <li style="padding-inline-start: 0;">{servingsperpackage}</li>  
+            </ul>
+        </div>
+        <div class="nut-data">
+            <div class="nut-labels">
+                <p>Average Quantity</p>
+                <p>Per Serving</p>
+                <p>Per 100g</p>
+            </div>             
+            <div class="energy">
+                <p>Energy</p>
+                <p>{energyperserving}</p>
+                <p>{energyper100g}</p>    
+            </div>   
+            <div class="protein">
+                <p>Protein</p>
+                <p>{proteinperserving}</p>
+                <p>{proteinper100g}</p>    
+            </div> 
+            {(fattotalperserving || fattotalper100g) &&
+            <div class="fat-total"> 
+                <p>Fat, total</p>
+                <p>{fattotalperserving}</p>
+                <p>{fattotalper100g}</p>}    
+            </div> 
+        </div>
+    </div>
+    <ProductDisclaimer />
 </Layout>
 
 <style lang="scss">
 :global(main) {
     background-image: none;
+}
+#nut-info {
+    display: none;
+}
+#ing-info {
+    display: flex;
 }
 .prod-head {
     padding: 40px 15px;
@@ -120,11 +196,25 @@ const { name, description, imageurl, ingredients, newicon } = Astro.props;
 .prod-tech-info {
     padding: 10px;
     font-size: 12px;
-    & > div {
+  
+    & > div:nth-child(1) {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
         flex: 0 0 50%;
     }
+    & > div:nth-child(2)  {
+        width: 100%;
+        padding-right: 30px;
+        & > div {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+    }
 }
-.ing-text, .claim-text {
+.ing-text {
     padding: 10px;
     font-size: 12px;
 }
@@ -136,6 +226,56 @@ const { name, description, imageurl, ingredients, newicon } = Astro.props;
   left: -10px;
   z-index: 1;
 }
+li {
+    list-style-type: none;
+    position: relative;
+    padding: 12px 0 10px 35px;
+}
+li:before { 
+    content: "" !important; 
+    background: url("https://simplot-media.azureedge.net/-/media/themes/sapl/brands/base/base/images/tick.svg") no-repeat;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 7px;
+    left: 0;
+}
+.nut-info-ul {
+    font-weight: bold;
+    list-style-type: disc;
+    & li {
+        padding-bottom: 0;
+    }
+}
+.nut-data {
+    display: block;
+    & div:not(:nth-child(1)) p:nth-child(1) {
+        min-width: 45%;
+    }
+}
+.prod-tech-info ul:nth-child(2) {
+        font-weight: 400;
+        font-size: 14px;
+}
+#nut-info li:before {
+    background: none;
+}
+.nut-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding-top: 15px;
+    border-bottom: 2px solid black;
+    height: fit-content;
+    & p:nth-child(1) {
+        margin-bottom: 5px;
+        min-width: 50%;
+    }
+}
+
 @media (min-width: 768px) {
     .prod-head {
         display: flex;
@@ -149,3 +289,27 @@ const { name, description, imageurl, ingredients, newicon } = Astro.props;
 }
 </style>
 
+<script is:inline>
+function showhide() {
+    let nutInfo = document.getElementById("nut-info");
+    let ingInfo = document.getElementById("ing-info");
+    let nutLabel = document.getElementById("nut-label");
+    let ingLabel = document.getElementById("ing-label");
+
+    if (nutInfo.style.display == "none") {
+        nutInfo.style.display = "flex";
+        nutLabel.style.color = "white"
+        nutLabel.style.backgroundColor = "black"
+        ingInfo.style.display = "none";
+        ingLabel.style.color = "black"
+        ingLabel.style.backgroundColor = "white"
+    } else {
+        nutInfo.style.display = "none";
+        nutLabel.style.color = "black"
+        nutLabel.style.backgroundColor = "white"
+        ingInfo.style.display = "flex";
+        ingLabel.style.color = "white"
+        ingLabel.style.backgroundColor = "black"
+    }
+}    
+</script>

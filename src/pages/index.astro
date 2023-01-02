@@ -1,4 +1,8 @@
 ---
+// This is the Home page.
+// Shows all avaialble categories via CategoryCards components.
+// Shows Product and Recipe carousels.
+
 import Layout from "../layouts/Layout.astro";
 import Homehero from "../components/homehero.astro";
 import CategoryCards from "../components/CategoryCards.astro";
@@ -7,10 +11,10 @@ const pageTitle = "I and J";
 ---
 <title>{pageTitle}</title>
 
-  <Layout>
-    <Homehero />
-	<CategoryCards />
-  </Layout>
+<Layout>
+  <Homehero />
+  <CategoryCards />
+</Layout>
 
 <style>
   :global(main) {
