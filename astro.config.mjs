@@ -9,15 +9,13 @@ import netlify from "@astrojs/netlify/functions";
 // https://astro.build/config
 import image from "@astrojs/image";
 
-// https://astro.build/config
-// 
-// https://astro.build/config
-// export default defineConfig({
-//   integrations: [image()],
-//   output: "server",
-//   site: "https://sapl-iandj.netlify.app",
-//   adapter: netlify(),
-//   experimental: {
-//     errorOverlay: true,
-//   },
-// });
+//https://astro.build/config
+export default defineConfig({
+  integrations: [image()],
+  output: "server",
+  site: "https://sapl-iandj.netlify.app",
+  adapter: netlify(),
+  experimental: {
+    errorOverlay: true,
+  },
+});
