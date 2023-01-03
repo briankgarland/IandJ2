@@ -15,6 +15,7 @@ import image from "@astrojs/image";
 export default defineConfig({
   integrations: [sitemap(), image()],
   output: "server",
+  site: "sapl-iandj.netlify.app",
   adapter: netlify(),
   experimental: {
     errorOverlay: true,
