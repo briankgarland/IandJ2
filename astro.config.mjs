@@ -10,11 +10,13 @@ import netlify from "@astrojs/netlify/functions";
 import image from "@astrojs/image";
 
 // https://astro.build/config
-// export default defineConfig({
-//   integrations: [sitemap(), image()],
-//   output: "server",
-//   adapter: netlify(),
-//   experimental: {
-//     errorOverlay: true,
-//   },
-// });
+// 
+// https://astro.build/config
+export default defineConfig({
+  integrations: [sitemap(), image()],
+  output: "server",
+  adapter: netlify(),
+  experimental: {
+    errorOverlay: true,
+  },
+});
