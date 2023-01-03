@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-//import sitemap from "@astrojs/sitemap";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 import netlify from "@astrojs/netlify/functions";
@@ -13,7 +13,7 @@ import image from "@astrojs/image";
 // 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [image()],
+  integrations: [sitemap(), image()],
   output: "server",
   site: "https://sapl-iandj.netlify.app",
   adapter: netlify(),
