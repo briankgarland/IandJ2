@@ -13,7 +13,7 @@ import image from "@astrojs/image";
 // 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [sitemap(), image()],
+  integrations: [image()],
   output: "server",
   site: "https://sapl-iandj.netlify.app",
   adapter: netlify(),
