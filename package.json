@@ -17,7 +17,7 @@
     "@contentful/rich-text-html-renderer": "^16.0.2",
     "astro": "^1.7.2",
     "contentful": "^9.2.14",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.6"
   },
   "devDependencies": {
     "accessible-astro-components": "^1.6.1",
@@ -27,5 +27,9 @@
     "postcss-utilities": "^0.8.4",
     "rucksack-css": "^1.0.2",
     "sass": "^1.57.0"
-  }
+  },
+  "compilerOptions": { 
+    "allowJs": true, "outDir": "./dist" 
+  },
+
 }
