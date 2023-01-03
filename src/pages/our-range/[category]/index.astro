@@ -52,14 +52,14 @@ const cardCategories = categories.items.map((item) => {
     <select>
       {cardCategories.map((card) => (
       (card.displayCard) &&
-        <option value="..\${slugify(card.name)}" selected="">{card.name}</option>
+        <option value="..\${card.name}" selected="">{card.name}</option>
       ))}
     </select>
   </div>
   <div class="catnav-desktop">
     {cardCategories.map((card) => (
     (card.displayCard) &&
-    <a href="..\${slugify(card.name)}">
+    <a href="..\${card.name}">
       <p>{card.name}</p>
     </a>
     ))}
