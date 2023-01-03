@@ -7,7 +7,8 @@ import fs from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 /* empty css                                 */import contentful from 'contentful';
 import { optimize } from 'svgo';
-/* empty css                                 *//* empty css                                 *//* empty css                                     *//* empty css                                  *//* empty css                                 */import 'cookie';
+/* empty css                                 *//* empty css                                 *//* empty css                                 *//* empty css                                     *//* empty css                                 *//* empty css                                 *//* empty css                                 */import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+/* empty css                                 *//* empty css                                  *//* empty css                                 */import 'cookie';
 import 'string-width';
 import 'path-browserify';
 import { compile } from 'path-to-regexp';
@@ -204,11 +205,11 @@ function isPromise(value) {
   return !!value && typeof value === "object" && typeof value.then === "function";
 }
 
-var _a$6;
+var _a$7;
 const renderTemplateResultSym = Symbol.for("astro.renderTemplateResult");
 class RenderTemplateResult {
   constructor(htmlParts, expressions) {
-    this[_a$6] = true;
+    this[_a$7] = true;
     this.htmlParts = htmlParts;
     this.error = void 0;
     this.expressions = expressions.map((expression) => {
@@ -223,7 +224,7 @@ class RenderTemplateResult {
       return expression;
     });
   }
-  get [(_a$6 = renderTemplateResultSym, Symbol.toStringTag)]() {
+  get [(_a$7 = renderTemplateResultSym, Symbol.toStringTag)]() {
     return "AstroComponent";
   }
   async *[Symbol.asyncIterator]() {
@@ -772,11 +773,11 @@ async function generateHydrateScript(scriptOptions, metadata) {
   return island;
 }
 
-var _a$5;
+var _a$6;
 const astroComponentInstanceSym = Symbol.for("astro.componentInstance");
 class AstroComponentInstance {
   constructor(result, props, slots, factory) {
-    this[_a$5] = true;
+    this[_a$6] = true;
     this.result = result;
     this.props = props;
     this.factory = factory;
@@ -804,7 +805,7 @@ class AstroComponentInstance {
     }
   }
 }
-_a$5 = astroComponentInstanceSym;
+_a$6 = astroComponentInstanceSym;
 function validateComponentProps(props, displayName) {
   if (props != null) {
     for (const prop of Object.keys(props)) {
@@ -2086,13 +2087,15 @@ const _page0 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   get: get$1
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$Astro$u = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/logo.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$z = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/logo.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Logo = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$u, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$z, $$props, $$slots);
   Astro2.self = $$Logo;
-  return renderTemplate`${maybeRenderHead($$result)}<a href="/">
-    <img src="https://simplot-media.azureedge.net/-/media/project/sapl/brands/australia/iandj/images/logos/brand-small.jpg?h=450&iar=0&w=600&rev=42050e2b08674bc6bf2e9edd066e878d&hash=0A802625D6E74D5D0968F70EAB04285F" class="logo" alt="logo">  
-</a>`;
+  return renderTemplate`${maybeRenderHead($$result)}<a href="/" class="astro-4NVSOZW4">
+    <img src="https://simplot-media.azureedge.net/-/media/project/sapl/brands/australia/iandj/images/logos/brand-small.jpg?h=450&iar=0&w=600&rev=42050e2b08674bc6bf2e9edd066e878d&hash=0A802625D6E74D5D0968F70EAB04285F" class="logo astro-4NVSOZW4" alt="logo">  
+</a>
+
+`;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/logo.astro");
 
 const contentfulClient = contentful.createClient({
@@ -2313,9 +2316,9 @@ ${contents}`
   };
 }
 
-const $$Astro$t = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/astro-icon/lib/Icon.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$y = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/astro-icon/lib/Icon.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Icon = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$t, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$y, $$props, $$slots);
   Astro2.self = $$Icon;
   let { name, pack, title, optimize = true, class: className, ...inputProps } = Astro2.props;
   let props = {};
@@ -2360,9 +2363,9 @@ async function getUsedSprites(request) {
   return [];
 }
 
-const $$Astro$s = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/astro-icon/lib/Spritesheet.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$x = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/astro-icon/lib/Spritesheet.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Spritesheet = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$s, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$x, $$props, $$slots);
   Astro2.self = $$Spritesheet;
   const { optimize = true, style, ...props } = Astro2.props;
   const names = await getUsedSprites(Astro2.request);
@@ -2379,9 +2382,9 @@ ${e}`);
 </svg>`;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/astro-icon/lib/Spritesheet.astro");
 
-const $$Astro$r = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/astro-icon/lib/SpriteProvider.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$w = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/astro-icon/lib/SpriteProvider.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$SpriteProvider = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$r, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$w, $$props, $$slots);
   Astro2.self = $$SpriteProvider;
   const content = await Astro2.slots.render("default");
   return renderTemplate`${renderComponent($$result, "Fragment", Fragment, {}, { "default": () => renderTemplate`${unescapeHTML(content)}` })}
@@ -2389,9 +2392,9 @@ ${renderComponent($$result, "Spritesheet", $$Spritesheet, {})}
 `;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/astro-icon/lib/SpriteProvider.astro");
 
-const $$Astro$q = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/astro-icon/lib/Sprite.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$v = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/astro-icon/lib/Sprite.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Sprite = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$q, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$v, $$props, $$slots);
   Astro2.self = $$Sprite;
   let { name, pack, title, class: className, x, y, ...inputProps } = Astro2.props;
   const props = normalizeProps(inputProps);
@@ -2408,9 +2411,9 @@ const $$Sprite = createComponent(async ($$result, $$props, $$slots) => {
 
 Object.assign($$Sprite, { Provider: $$SpriteProvider });
 
-const $$Astro$p = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/headerNav.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$u = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/headerNav.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$HeaderNav = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$p, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$u, $$props, $$slots);
   Astro2.self = $$HeaderNav;
   const categories = await contentfulClient.getEntries({
     content_type: "category"
@@ -2475,9 +2478,9 @@ const $$HeaderNav = createComponent(async ($$result, $$props, $$slots) => {
 </nav>`;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/headerNav.astro");
 
-const $$Astro$o = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/footerNav.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$t = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/footerNav.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$FooterNav = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$o, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$t, $$props, $$slots);
   Astro2.self = $$FooterNav;
   const categories = await contentfulClient.getEntries({
     content_type: "category"
@@ -2502,9 +2505,9 @@ const $$FooterNav = createComponent(async ($$result, $$props, $$slots) => {
 </nav>`;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/footerNav.astro");
 
-const $$Astro$n = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/copyright.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$s = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/copyright.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Copyright = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$n, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$s, $$props, $$slots);
   Astro2.self = $$Copyright;
   return renderTemplate`${maybeRenderHead($$result)}<div class="copyright-wrapper astro-2226LSYZ">
     <div class="copyright astro-2226LSYZ">
@@ -2513,28 +2516,28 @@ const $$Copyright = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/copyright.astro");
 
-var __freeze$4 = Object.freeze;
-var __defProp$4 = Object.defineProperty;
-var __template$4 = (cooked, raw) => __freeze$4(__defProp$4(cooked, "raw", { value: __freeze$4(raw || cooked.slice()) }));
-var _a$4;
-const $$Astro$m = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/layouts/Layout.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+var __freeze$5 = Object.freeze;
+var __defProp$5 = Object.defineProperty;
+var __template$5 = (cooked, raw) => __freeze$5(__defProp$5(cooked, "raw", { value: __freeze$5(raw || cooked.slice()) }));
+var _a$5;
+const $$Astro$r = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/layouts/Layout.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$m, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$r, $$props, $$slots);
   Astro2.self = $$Layout;
   const { pageTitle } = Astro2.props;
-  return renderTemplate(_a$4 || (_a$4 = __template$4(['<html lang="en" class="astro-NX2FWRR5">\n  <head>\n    <meta charset="utf-8">\n    <link rel="icon" type="image/svg+xml" href="/favicon.svg">\n    <meta name="viewport" content="width=device-width">\n    <meta name="generator"', '>\n	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">\n	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->\n    <title>', "</title>\n  ", '</head>\n  <body class="astro-NX2FWRR5">\n	<header class="wrapper header-nav astro-NX2FWRR5">\n		', '\n	</header>\n	<main class="astro-NX2FWRR5">	\n		<div class="wrapper main-container astro-NX2FWRR5">	\n			', '	\n		</div>\n    </main>\n	<footer class="wrapper footer-nav astro-NX2FWRR5">\n		', "\n		", '\n	</footer>\n	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"><\/script> -->\n  \n\n</body></html>'])), addAttribute(Astro2.generator, "content"), pageTitle, renderHead($$result), renderComponent($$result, "HeaderNav", $$HeaderNav, { "class": "astro-NX2FWRR5" }), renderSlot($$result, $$slots["default"]), renderComponent($$result, "FooterNav", $$FooterNav, { "class": "astro-NX2FWRR5" }), renderComponent($$result, "Copyright", $$Copyright, { "class": "astro-NX2FWRR5" }));
+  return renderTemplate(_a$5 || (_a$5 = __template$5(['<html lang="en" class="astro-NX2FWRR5">\n  <head>\n    <meta charset="utf-8">\n    <link rel="icon" type="image/svg+xml" href="/favicon.svg">\n    <meta name="viewport" content="width=device-width">\n    <meta name="generator"', '>\n	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">\n	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->\n    <title>', "</title>\n  ", '</head>\n  <body class="astro-NX2FWRR5">\n	<header class="wrapper header-nav astro-NX2FWRR5">\n		', '\n	</header>\n	<main class="astro-NX2FWRR5">	\n		<div class="wrapper main-container astro-NX2FWRR5">	\n			', '	\n		</div>\n    </main>\n	<footer class="wrapper footer-nav astro-NX2FWRR5">\n		', "\n		", '\n	</footer>\n	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"><\/script> -->\n  \n\n</body></html>'])), addAttribute(Astro2.generator, "content"), pageTitle, renderHead($$result), renderComponent($$result, "HeaderNav", $$HeaderNav, { "class": "astro-NX2FWRR5" }), renderSlot($$result, $$slots["default"]), renderComponent($$result, "FooterNav", $$FooterNav, { "class": "astro-NX2FWRR5" }), renderComponent($$result, "Copyright", $$Copyright, { "class": "astro-NX2FWRR5" }));
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/layouts/Layout.astro");
 
-const $$Astro$l = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/homehero.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$q = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/homehero.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Homehero = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$l, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$q, $$props, $$slots);
   Astro2.self = $$Homehero;
   return renderTemplate`${maybeRenderHead($$result)}<img src="https://simplot-media.azureedge.net/-/media/project/sapl/brands/australia/iandj/images/ij-background-jpg.jpg?h=312&iar=0&w=820&rev=4b7aae4681c34609baa616d1eb61f335&hash=25F5C45A4620C54D17F856CB062E9001" alt="logo" class="full-width astro-WJVETA7W">`;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/homehero.astro");
 
-const $$Astro$k = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/CategoryCards.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$p = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/CategoryCards.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$CategoryCards = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$k, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$p, $$props, $$slots);
   Astro2.self = $$CategoryCards;
   const categories = await contentfulClient.getEntries({
     content_type: "category"
@@ -2548,13 +2551,14 @@ const $$CategoryCards = createComponent(async ($$result, $$props, $$slots) => {
       displayCard
     };
   });
-  return renderTemplate`${maybeRenderHead($$result)}<div class="card-wrapper astro-2NJC7RVF">
-${cardCategories.map((card) => card.displayCard && renderTemplate`<div class="card astro-2NJC7RVF"> 
-      <a${addAttribute(`/our-range/${card.name}/`, "href")} class="astro-2NJC7RVF">
-      <h2 class="astro-2NJC7RVF">${card.name}</h2>
-      <p class="astro-2NJC7RVF">${card.description}</p>
-      <div class="image-wrapper astro-2NJC7RVF">
-        <img${addAttribute(card.imageUrl, "src")}${addAttribute(card.name, "alt")} class="astro-2NJC7RVF">
+  return renderTemplate`${maybeRenderHead($$result)}<div class="card-wrapper astro-UMM4R3BH">
+${cardCategories.map((card) => card.displayCard && renderTemplate`<div class="card astro-UMM4R3BH"> 
+      <a${addAttribute(`/our-range/${card.name}/`, "href")} class="astro-UMM4R3BH">
+      <!-- <a href={\`/our-range/\${slugify(card.name)}/\`}> -->
+      <h2 class="astro-UMM4R3BH">${card.name}</h2>
+      <p class="astro-UMM4R3BH">${card.description}</p>
+      <div class="image-wrapper astro-UMM4R3BH">
+        <img${addAttribute(card.imageUrl, "src")}${addAttribute(card.name, "alt")} class="astro-UMM4R3BH">
       </div>
       </a>
     </div>`)}
@@ -2564,39 +2568,39 @@ ${cardCategories.map((card) => card.displayCard && renderTemplate`<div class="ca
 `;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/CategoryCards.astro");
 
-const $$Astro$j = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/index.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
-const $$Index$2 = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$j, $$props, $$slots);
-  Astro2.self = $$Index$2;
+const $$Astro$o = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/index.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Index$3 = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$o, $$props, $$slots);
+  Astro2.self = $$Index$3;
   const pageTitle = "I and J";
   return renderTemplate`<title>${pageTitle}</title>
 
-  ${renderComponent($$result, "Layout", $$Layout, {}, { "default": () => renderTemplate`${renderComponent($$result, "Homehero", $$Homehero, {})}${renderComponent($$result, "CategoryCards", $$CategoryCards, {})}` })}
+${renderComponent($$result, "Layout", $$Layout, { "class": "astro-2JJ7ZYIT" }, { "default": () => renderTemplate`${renderComponent($$result, "Homehero", $$Homehero, { "class": "astro-2JJ7ZYIT" })}${renderComponent($$result, "CategoryCards", $$CategoryCards, { "class": "astro-2JJ7ZYIT" })}` })}
 
 
 
 `;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/index.astro");
 
-const $$file$7 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/index.astro";
-const $$url$7 = "";
+const $$file$8 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/index.astro";
+const $$url$8 = "";
 
 const _page1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: $$Index$2,
-  file: $$file$7,
-  url: $$url$7
+  default: $$Index$3,
+  file: $$file$8,
+  url: $$url$8
 }, Symbol.toStringTag, { value: 'Module' }));
 
-var __freeze$3 = Object.freeze;
-var __defProp$3 = Object.defineProperty;
-var __template$3 = (cooked, raw) => __freeze$3(__defProp$3(cooked, "raw", { value: __freeze$3(raw || cooked.slice()) }));
-var _a$3;
-const $$Astro$i = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Accordion.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+var __freeze$4 = Object.freeze;
+var __defProp$4 = Object.defineProperty;
+var __template$4 = (cooked, raw) => __freeze$4(__defProp$4(cooked, "raw", { value: __freeze$4(raw || cooked.slice()) }));
+var _a$4;
+const $$Astro$n = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Accordion.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Accordion = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$i, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$n, $$props, $$slots);
   Astro2.self = $$Accordion;
-  return renderTemplate(_a$3 || (_a$3 = __template$3(["", '<div class="accordion astro-3WOKX5CT">\n  <ul class="accordion__wrapper astro-3WOKX5CT">\n    ', `
+  return renderTemplate(_a$4 || (_a$4 = __template$4(["", '<div class="accordion astro-3WOKX5CT">\n  <ul class="accordion__wrapper astro-3WOKX5CT">\n    ', `
   </ul>
 </div>
 
@@ -2823,9 +2827,9 @@ const $$Accordion = createComponent(async ($$result, $$props, $$slots) => {
 `])), maybeRenderHead($$result), renderSlot($$result, $$slots["default"]));
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Accordion.astro");
 
-const $$Astro$h = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/AccordionItem.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$m = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/AccordionItem.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$AccordionItem = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$h, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$m, $$props, $$slots);
   Astro2.self = $$AccordionItem;
   const { header } = Astro2.props;
   return renderTemplate`${maybeRenderHead($$result)}<li class="accordion__item">
@@ -2847,9 +2851,9 @@ const $$AccordionItem = createComponent(async ($$result, $$props, $$slots) => {
 `;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/AccordionItem.astro");
 
-const $$Astro$g = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Breadcrumbs.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$l = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Breadcrumbs.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Breadcrumbs = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$g, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$l, $$props, $$slots);
   Astro2.self = $$Breadcrumbs;
   return renderTemplate`${maybeRenderHead($$result)}<nav class="breadcrumbs" aria-label="Breadcrumbs">
   <ol>
@@ -2860,9 +2864,9 @@ const $$Breadcrumbs = createComponent(async ($$result, $$props, $$slots) => {
 `;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Breadcrumbs.astro");
 
-const $$Astro$f = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/BreadcrumbsItem.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$k = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/BreadcrumbsItem.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$BreadcrumbsItem = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$f, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$k, $$props, $$slots);
   Astro2.self = $$BreadcrumbsItem;
   const {
     href = "#",
@@ -2876,9 +2880,9 @@ const $$BreadcrumbsItem = createComponent(async ($$result, $$props, $$slots) => 
 `;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/BreadcrumbsItem.astro");
 
-const $$Astro$e = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Card.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$j = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Card.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Card = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$e, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$j, $$props, $$slots);
   Astro2.self = $$Card;
   const {
     url = "#",
@@ -2906,15 +2910,15 @@ const $$Card = createComponent(async ($$result, $$props, $$slots) => {
 `;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Card.astro");
 
-var __freeze$2 = Object.freeze;
-var __defProp$2 = Object.defineProperty;
-var __template$2 = (cooked, raw) => __freeze$2(__defProp$2(cooked, "raw", { value: __freeze$2(raw || cooked.slice()) }));
-var _a$2;
-const $$Astro$d = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/DarkMode.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+var __freeze$3 = Object.freeze;
+var __defProp$3 = Object.defineProperty;
+var __template$3 = (cooked, raw) => __freeze$3(__defProp$3(cooked, "raw", { value: __freeze$3(raw || cooked.slice()) }));
+var _a$3;
+const $$Astro$i = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/DarkMode.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$DarkMode = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$d, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$i, $$props, $$slots);
   Astro2.self = $$DarkMode;
-  return renderTemplate(_a$2 || (_a$2 = __template$2(["", `<button class="darkmode-toggle" aria-pressed="false" aria-label="Enable dark mode">
+  return renderTemplate(_a$3 || (_a$3 = __template$3(["", `<button class="darkmode-toggle" aria-pressed="false" aria-label="Enable dark mode">
   <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M9.353 3C5.849 4.408 3 7.463 3 11.47A9.53 9.53 0 0 0 12.53 21c4.007 0 7.062-2.849 8.47-6.353C8.17 17.065 8.14 8.14 9.353 3z"></path></svg>
 </button>
 
@@ -2989,9 +2993,9 @@ const $$DarkMode = createComponent(async ($$result, $$props, $$slots) => {
 <\/script>`])), maybeRenderHead($$result));
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/DarkMode.astro");
 
-const $$Astro$c = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Media.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$h = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Media.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Media = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$c, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$h, $$props, $$slots);
   Astro2.self = $$Media;
   const {
     classes = null,
@@ -3001,20 +3005,20 @@ const $$Media = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead($$result)}<img${addAttribute(classes, "class")}${addAttribute(src, "src")}${addAttribute(alt, "alt")} loading="lazy">`;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Media.astro");
 
-var __freeze$1 = Object.freeze;
-var __defProp$1 = Object.defineProperty;
-var __template$1 = (cooked, raw) => __freeze$1(__defProp$1(cooked, "raw", { value: __freeze$1(raw || cooked.slice()) }));
-var _a$1;
-const $$Astro$b = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Modal.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+var __freeze$2 = Object.freeze;
+var __defProp$2 = Object.defineProperty;
+var __template$2 = (cooked, raw) => __freeze$2(__defProp$2(cooked, "raw", { value: __freeze$2(raw || cooked.slice()) }));
+var _a$2;
+const $$Astro$g = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Modal.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Modal = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$b, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$g, $$props, $$slots);
   Astro2.self = $$Modal;
   const {
     triggerId,
     title,
     closeText = "Close"
   } = Astro2.props;
-  return renderTemplate(_a$1 || (_a$1 = __template$1(["", '<div class="modal" role="dialog"', '>\n  <div class="modal__inner">\n    <div class="modal__content">\n      <h3 tabindex="-1">\n        ', "\n      </h3>\n      ", '\n    </div>\n    <div class="modal__close">\n      <button>', `</button>
+  return renderTemplate(_a$2 || (_a$2 = __template$2(["", '<div class="modal" role="dialog"', '>\n  <div class="modal__inner">\n    <div class="modal__content">\n      <h3 tabindex="-1">\n        ', "\n      </h3>\n      ", '\n    </div>\n    <div class="modal__close">\n      <button>', `</button>
     </div>
   </div>
 </div>
@@ -3177,9 +3181,9 @@ const $$Modal = createComponent(async ($$result, $$props, $$slots) => {
 `])), maybeRenderHead($$result), addAttribute(triggerId, "aria-labelledby"), title, renderSlot($$result, $$slots["default"], renderTemplate`Modal description.`), closeText);
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Modal.astro");
 
-const $$Astro$a = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Notification.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$f = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Notification.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Notification = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$a, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$f, $$props, $$slots);
   Astro2.self = $$Notification;
   const {
     type = "default",
@@ -3193,9 +3197,9 @@ const $$Notification = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Notification.astro");
 
-const $$Astro$9 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Pagination.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$e = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Pagination.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Pagination = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$9, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$e, $$props, $$slots);
   Astro2.self = $$Pagination;
   const {
     firstPage = "#",
@@ -3228,15 +3232,15 @@ const $$Pagination = createComponent(async ($$result, $$props, $$slots) => {
 `;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/Pagination.astro");
 
-var __freeze = Object.freeze;
-var __defProp = Object.defineProperty;
-var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(raw || cooked.slice()) }));
-var _a;
-const $$Astro$8 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/SkipLinks.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+var __freeze$1 = Object.freeze;
+var __defProp$1 = Object.defineProperty;
+var __template$1 = (cooked, raw) => __freeze$1(__defProp$1(cooked, "raw", { value: __freeze$1(raw || cooked.slice()) }));
+var _a$1;
+const $$Astro$d = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/SkipLinks.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$SkipLinks = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$8, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$d, $$props, $$slots);
   Astro2.self = $$SkipLinks;
-  return renderTemplate(_a || (_a = __template(["", `<div class="skip-links">
+  return renderTemplate(_a$1 || (_a$1 = __template$1(["", `<div class="skip-links">
   <a href="#main-content">Skip to main content</a>
 </div>
 
@@ -3270,19 +3274,19 @@ const $$SkipLinks = createComponent(async ($$result, $$props, $$slots) => {
 `])), maybeRenderHead($$result));
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/accessible-astro-components/SkipLinks.astro");
 
-const $$Astro$7 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/title.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$c = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/title.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Title = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$7, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$c, $$props, $$slots);
   Astro2.self = $$Title;
-  const { pageTitle } = Astro2.props;
-  return renderTemplate`${maybeRenderHead($$result)}<div class="title-wrapper astro-KKOAWSW2">
-    <h1 class="astro-KKOAWSW2">${pageTitle}</h1>
+  const { pageTitle = "Page Title", usebgImage = false } = Astro2.props;
+  return renderTemplate`${maybeRenderHead($$result)}<div${addAttribute([["title-wrapper", { "title-bg": usebgImage }], "astro-BQDUPTEM"], "class:list")}>
+    <h1 class="astro-BQDUPTEM">${pageTitle}</h1>
 </div>`;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/title.astro");
 
-const $$Astro$6 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/contactus.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$b = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/contactus.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Contactus = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$6, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$b, $$props, $$slots);
   Astro2.self = $$Contactus;
   const pageTitle = "Contact Us";
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": pageTitle, "class": "astro-WM2FJO5P" }, { "default": () => renderTemplate`${renderComponent($$result, "Breadcrumbs", $$Breadcrumbs, { "class": "astro-WM2FJO5P" }, { "default": () => renderTemplate`${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "href": "/", "label": "Home", "class": "astro-WM2FJO5P" })}${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "currentPage": true, "label": pageTitle, "class": "astro-WM2FJO5P" })}` })}${renderComponent($$result, "Title", $$Title, { "pageTitle": pageTitle, "class": "astro-WM2FJO5P" })}${maybeRenderHead($$result)}<h4 class="astro-WM2FJO5P">
@@ -3401,53 +3405,141 @@ const $$Contactus = createComponent(async ($$result, $$props, $$slots) => {
 `;
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/contactus.astro");
 
-const $$file$6 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/contactus.astro";
-const $$url$6 = "/contactus";
+const $$file$7 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/contactus.astro";
+const $$url$7 = "/contactus";
 
 const _page2 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$Contactus,
+  file: $$file$7,
+  url: $$url$7
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const $$Astro$a = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/CatCards.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$CatCards = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$a, $$props, $$slots);
+  Astro2.self = $$CatCards;
+  const categories = await contentfulClient.getEntries({
+    content_type: "category"
+  });
+  const cardCategories = categories.items.map((item) => {
+    const { name, description, imageUrl, displayCard } = item.fields;
+    return {
+      name,
+      description,
+      imageUrl,
+      displayCard
+    };
+  });
+  return renderTemplate`${maybeRenderHead($$result)}<div class="card-wrapper astro-MXCZGLKE">
+${cardCategories.map((card) => card.displayCard && renderTemplate`<div class="card astro-MXCZGLKE"> 
+      <a${addAttribute(`/our-range/${card.name}/`, "href")} class="astro-MXCZGLKE">
+      <h2 class="astro-MXCZGLKE">${card.name}</h2>
+      <div class="image-wrapper astro-MXCZGLKE">
+        <img${addAttribute(card.imageUrl, "src")}${addAttribute(card.name, "alt")} class="astro-MXCZGLKE">
+      </div>
+      </a>
+    </div>`)}
+</div>
+
+
+`;
+}, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/CatCards.astro");
+
+const $$Astro$9 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/index.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Index$2 = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$9, $$props, $$slots);
+  Astro2.self = $$Index$2;
+  const pageTitle = "Our Range";
+  const usebgImage = false;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "pageTitle": pageTitle }, { "default": () => renderTemplate`${renderComponent($$result, "Breadcrumbs", $$Breadcrumbs, {}, { "default": () => renderTemplate`${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "href": "/", "label": "Home" })}${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "currentPage": true, "label": pageTitle })}` })}${renderComponent($$result, "Title", $$Title, { "pageTitle": pageTitle, "usebgImage": usebgImage })}${renderComponent($$result, "CatCards", $$CatCards, {})}` })}`;
+}, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/index.astro");
+
+const $$file$6 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/index.astro";
+const $$url$6 = "/our-range";
+
+const _page3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Index$2,
   file: $$file$6,
   url: $$url$6
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$Astro$5 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/index.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$8 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/SubCatCards.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$SubCatCards = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$8, $$props, $$slots);
+  Astro2.self = $$SubCatCards;
+  const { category } = Astro2.props;
+  const subcategories = await contentfulClient.getEntries({
+    content_type: "subcategory"
+  });
+  const filteredSubCat = subcategories.items.filter((cat) => cat.fields.parentCategory === category);
+  return renderTemplate`${maybeRenderHead($$result)}<div class="card-wrapper astro-OIGVFCPG">
+${filteredSubCat.map((card) => card.fields.displayCard && renderTemplate`<div class="card astro-OIGVFCPG"> 
+      <a${addAttribute(`/our-range/${card.fields.parentCategory}/${card.fields.name}/`, "href")} class="astro-OIGVFCPG">
+      <h2 class="astro-OIGVFCPG">${card.fields.name}</h2>
+      <div class="image-wrapper astro-OIGVFCPG">
+        <img${addAttribute(card.fields.imageUrl, "src")}${addAttribute(card.fields.name, "alt")} class="astro-OIGVFCPG">
+      </div>
+      </a>
+    </div>`)}
+</div>
+
+
+`;
+}, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/SubCatCards.astro");
+
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}
+
+const $$Astro$7 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/index.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 async function getStaticPaths$2() {
   const categories = await contentfulClient.getEntries({
     content_type: "category"
   });
-  const prodCategories = categories.items.map((item) => {
-    const { name, headerNav } = item.fields;
-    return {
-      Params: {
-        name,
-        headerNav
-      },
-      Props: {
-        prodCategories
-      }
-    };
-  });
+  const prodCategories = categories.items.map((item) => ({
+    params: { category: item.fields.name },
+    props: { category: item.fields.name }
+  }));
+  return prodCategories;
 }
 const $$Index$1 = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$5, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$7, $$props, $$slots);
   Astro2.self = $$Index$1;
-  Astro2.params;
-  const { prodCategories } = Astro2.props;
-  return renderTemplate`${maybeRenderHead($$result)}<h1>Category Listing</h1>
-<ul class="cat-nav">
-  ${prodCategories.map((cats) => cats.headerNav && renderTemplate`<li>
-      <a${addAttribute(`/our-range/${cats.name}/`, "href")}>
-      <h3>${cats.name}</h3>
-      </a>
-  </li>`)}
-</ul>`;
-}, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/index.astro");
+  const { category } = Astro2.props;
+  const categories = await contentfulClient.getEntries({
+    content_type: "category"
+  });
+  const cardCategories = categories.items.map((item) => {
+    const { name, displayCard } = item.fields;
+    return {
+      name,
+      displayCard
+    };
+  });
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "pageTitle": "Our Range | I&J", "class": "astro-5MQV6DR2" }, { "default": () => renderTemplate`${renderComponent($$result, "Breadcrumbs", $$Breadcrumbs, { "class": "astro-5MQV6DR2" }, { "default": () => renderTemplate`${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "href": "/", "label": "Home", "class": "astro-5MQV6DR2" })}${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "currentPage": true, "label": category, "class": "astro-5MQV6DR2" })}` })}${renderComponent($$result, "Title", $$Title, { "pageTitle": "Our Range", "class": "astro-5MQV6DR2" })}${maybeRenderHead($$result)}<div class="catnav-mobile astro-5MQV6DR2">
+    <select class="astro-5MQV6DR2">
+      ${cardCategories.map((card) => card.displayCard && renderTemplate`<option value="..\\${slugify(card.name)}" selected="" class="astro-5MQV6DR2">${card.name}</option>`)}
+    </select>
+  </div><div class="catnav-desktop astro-5MQV6DR2">
+    ${cardCategories.map((card) => card.displayCard && renderTemplate`<a href="..\\${slugify(card.name)}" class="astro-5MQV6DR2">
+      <p class="astro-5MQV6DR2">${card.name}</p>
+    </a>`)}
+  </div>${renderComponent($$result, "SubCatCards", $$SubCatCards, { "category": category, "class": "astro-5MQV6DR2" })}` })}`;
+}, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/index.astro");
 
-const $$file$5 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/index.astro";
-const $$url$5 = "/our-range";
+const $$file$5 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/index.astro";
+const $$url$5 = "/our-range/[category]";
 
-const _page3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _page4 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   getStaticPaths: getStaticPaths$2,
   default: $$Index$1,
@@ -3455,44 +3547,72 @@ const _page3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   url: $$url$5
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$Astro$4 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/index.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$6 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/ProdCards.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$ProdCards = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$6, $$props, $$slots);
+  Astro2.self = $$ProdCards;
+  const products = await contentfulClient.getEntries({
+    content_type: "product"
+  });
+  products.items.map((item) => {
+    const { sku, name, description, imageurl, category, subcategory, displayCard, displayNew } = item.fields;
+    return {
+      sku,
+      name,
+      description,
+      imageurl,
+      category,
+      subcategory,
+      displayCard,
+      displayNew
+    };
+  });
+  const { subcat } = Astro2.props;
+  const filteredProd = products.items.filter((prod) => prod.fields.subcategory == subcat);
+  return renderTemplate`${maybeRenderHead($$result)}<div class="card-wrapper astro-IY4TCRJQ">
+${filteredProd.map((card) => card.fields.displayCard && renderTemplate`<div class="card astro-IY4TCRJQ"> 
+      <a${addAttribute(`/our-range/${card.fields.category}/${card.fields.subcategory}/${card.fields.sku}/`, "href")} class="astro-IY4TCRJQ">
+      ${card.fields.displayNew && renderTemplate`<img src="https://iandj.com.au/-/media/project/sapl/brands/australia/iandj/images/icons/new.svg" class="new astro-IY4TCRJQ">`}
+      <h2 class="astro-IY4TCRJQ">${card.fields.name}</h2>
+      <div class="image-wrapper astro-IY4TCRJQ">
+        <img${addAttribute(card.fields.imageurl, "src")}${addAttribute(card.fields.name, "alt")} class="astro-IY4TCRJQ">
+      </div>
+      </a>
+    </div>`)}
+</div>
+
+
+`;
+}, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/ProdCards.astro");
+
+const $$Astro$5 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/[subcategory]/index.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 async function getStaticPaths$1() {
   const subcategories = await contentfulClient.getEntries({
     content_type: "subcategory"
   });
-  const prodSubCategories = subcategories.items.map((item) => {
-    const { name, headerNav, parentCategory } = item.fields;
-    return {
-      Params: {
-        name,
-        headerNav,
-        parentCategory
-      },
-      Props: {
-        prodSubCategories
-      }
-    };
-  });
+  const prodSubCategories = subcategories.items.map((item) => ({
+    params: {
+      category: item.fields.parentCategory,
+      subcategory: item.fields.name
+    },
+    props: {
+      subcategory: item.fields.name,
+      parentcategory: item.fields.parentCategory
+    }
+  }));
+  return prodSubCategories;
 }
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$5, $$props, $$slots);
   Astro2.self = $$Index;
-  Astro2.params;
-  const { prodSubCategories } = Astro2.props;
-  return renderTemplate`${maybeRenderHead($$result)}<h1>Subcategory Listing</h1>
-<ul class="cat-nav">
-  ${prodSubCategories.map((subcats) => subcats.headerNav && renderTemplate`<li>
-      <a${addAttribute(`/our-range/${subcats.parentCategory}/${subcats.name}/`, "href")}>
-      <h3>${subcats.name}</h3>
-      </a>
-  </li>`)}
-</ul>`;
-}, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/index.astro");
+  const { subcategory, parentcategory } = Astro2.props;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "pageTitle": "Our Range | I&J" }, { "default": () => renderTemplate`${renderComponent($$result, "Breadcrumbs", $$Breadcrumbs, {}, { "default": () => renderTemplate`${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "href": "/", "label": "Home" })}${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "href": "..", "label": parentcategory })}${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "currentPage": true, "label": subcategory })}` })}${renderComponent($$result, "Title", $$Title, { "pageTitle": subcategory })}${renderComponent($$result, "ProdCards", $$ProdCards, { "subcat": subcategory })}` })}`;
+}, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/[subcategory]/index.astro");
 
-const $$file$4 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/index.astro";
-const $$url$4 = "/our-range/[category]";
+const $$file$4 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/[subcategory]/index.astro";
+const $$url$4 = "/our-range/[category]/[subcategory]";
 
-const _page4 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _page5 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   getStaticPaths: getStaticPaths$1,
   default: $$Index,
@@ -3500,17 +3620,50 @@ const _page4 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   url: $$url$4
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$Astro$3 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/[subcategory]/[sku].astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$4 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/ProductDisclaimer.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$ProductDisclaimer = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
+  Astro2.self = $$ProductDisclaimer;
+  return renderTemplate`${maybeRenderHead($$result)}<div class="disclaimer astro-AUH7ESH6">
+    <p class="astro-AUH7ESH6">
+        Whilst all care has been taken to ensure the information is
+        correct, please refer to the product label for further information.
+    </p>
+</div>`;
+}, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/components/ProductDisclaimer.astro");
+
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(raw || cooked.slice()) }));
+var _a;
+const $$Astro$3 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/[subcategory]/[sku].astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 async function getStaticPaths() {
   const products = await contentfulClient.getEntries({
     content_type: "product"
   });
-  products.items.map((item) => {
-    const { sku, name } = item.fields;
+  return products.items.map((item) => {
     return {
       params: {
-        sku,
-        name
+        category: item.fields.category,
+        subcategory: item.fields.subcategory,
+        sku: item.fields.sku
+      },
+      props: {
+        name: item.fields.name,
+        description: documentToHtmlString(item.fields.description),
+        imageurl: item.fields.imageurl,
+        ingredients: documentToHtmlString(item.fields.ingredients),
+        ing: item.fields.ingredients,
+        newicon: item.fields.displayNew,
+        packsize: item.fields.packSize,
+        servingsize: item.fields.servingSize,
+        servingsperpackage: item.fields.servingsPerPackage,
+        energyperserving: item.fields.energyPerServing,
+        energyper100g: item.fields.energyPer100g,
+        proteinperserving: item.fields.proteinPerServing,
+        proteinper100g: item.fields.proteinPer100g,
+        fattotalperserving: item.fields.fatTotalPerServing,
+        fattotalper100g: item.fields.fatTotalPer100g
       }
     };
   });
@@ -3518,14 +3671,79 @@ async function getStaticPaths() {
 const $$sku = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
   Astro2.self = $$sku;
-  const { sku, name } = Astro2.params;
-  return renderTemplate`${maybeRenderHead($$result)}<h2>SKU: ${sku}</h2>`;
+  const claims = await contentfulClient.getEntries({
+    content_type: "claim"
+  });
+  const allClaims = claims.items.map((claim) => {
+    const { claimName } = claim.fields;
+    return {
+      claimName
+    };
+  });
+  const { category, subcategory, sku } = Astro2.params;
+  const { name, description, imageurl, ingredients, newicon, packsize, servingsize, servingsperpackage, energyperserving, energyper100g, proteinperserving, proteinper100g, fattotalperserving, fattotalper100g } = Astro2.props;
+  return renderTemplate(_a || (_a = __template(["", '\n\n\n\n<script>\nfunction showhide() {\n    let nutInfo = document.getElementById("nut-info");\n    let ingInfo = document.getElementById("ing-info");\n    let nutLabel = document.getElementById("nut-label");\n    let ingLabel = document.getElementById("ing-label");\n\n    if (nutInfo.style.display == "none") {\n        nutInfo.style.display = "flex";\n        nutLabel.style.color = "white"\n        nutLabel.style.backgroundColor = "black"\n        ingInfo.style.display = "none";\n        ingLabel.style.color = "black"\n        ingLabel.style.backgroundColor = "white"\n    } else {\n        nutInfo.style.display = "none";\n        nutLabel.style.color = "black"\n        nutLabel.style.backgroundColor = "white"\n        ingInfo.style.display = "flex";\n        ingLabel.style.color = "white"\n        ingLabel.style.backgroundColor = "black"\n    }\n}    \n<\/script>'])), renderComponent($$result, "Layout", $$Layout, { "pageTitle": subcategory, "class": "astro-AP3JAACK" }, { "default": () => renderTemplate`${renderComponent($$result, "Breadcrumbs", $$Breadcrumbs, { "class": "astro-AP3JAACK" }, { "default": () => renderTemplate`${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "href": "/", "label": "Home", "class": "astro-AP3JAACK" })}${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "href": "../..", "label": category, "class": "astro-AP3JAACK" })}${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "href": "..", "label": subcategory, "class": "astro-AP3JAACK" })}${renderComponent($$result, "BreadcrumbsItem", $$BreadcrumbsItem, { "currentPage": true, "label": sku, "class": "astro-AP3JAACK" })}` })}${maybeRenderHead($$result)}<div class="prod-head astro-AP3JAACK">
+        <div class="prod-img astro-AP3JAACK">
+            ${newicon && renderTemplate`<img src="https://iandj.com.au/-/media/project/sapl/brands/australia/iandj/images/icons/new.svg" class="new astro-AP3JAACK">`}
+            <img${addAttribute(imageurl, "src")} alt="Product Image" class="prod-img astro-AP3JAACK">
+        </div>
+        <div class="prod-info astro-AP3JAACK">
+            <h1 class="astro-AP3JAACK">${name}</h1>
+            <p class="astro-AP3JAACK">${unescapeHTML(description)}</p>
+        </div>
+    </div><div class="prod-labels astro-AP3JAACK">
+        <div onclick="showhide()" class="ing astro-AP3JAACK" id="ing-label">
+            Ingredients
+        </div>      
+        <div onclick="showhide()" class="nut astro-AP3JAACK" id="nut-label">
+            Nutritional Information
+        </div>
+    </div><div class="prod-tech-info astro-AP3JAACK" id="ing-info" style="display: flex">
+        <div class="ing-text astro-AP3JAACK">${unescapeHTML(ingredients)}</div>
+        <ul class="astro-AP3JAACK">
+            ${allClaims.map((claim) => renderTemplate`<li class="claim-text astro-AP3JAACK">${claim.claimName}</li>`)}
+        </ul>
+    </div><div class="prod-tech-info astro-AP3JAACK" id="nut-info" style="display:none">
+        <div class="pack-data astro-AP3JAACK">
+            <ul class="nut-info-ul astro-AP3JAACK" style="padding-inline-start: 0;">
+              <li style="padding-inline-start: 0;" class="astro-AP3JAACK">Pack Size:</li>
+              <li style="padding-inline-start: 0;" class="astro-AP3JAACK">Serving Size:</li>
+              <li style="padding-inline-start: 0;" class="astro-AP3JAACK">Serving per Package:</li>  
+            </ul>
+            <ul class="nut-info-ul astro-AP3JAACK" style="padding-inline-start: 0;">
+              <li style="padding-inline-start: 0;" class="astro-AP3JAACK">${packsize}</li>
+              <li style="padding-inline-start: 0;" class="astro-AP3JAACK">${servingsize}</li>
+              <li style="padding-inline-start: 0;" class="astro-AP3JAACK">${servingsperpackage}</li>  
+            </ul>
+        </div>
+        <div class="nut-data astro-AP3JAACK">
+            <div class="nut-labels astro-AP3JAACK">
+                <p class="astro-AP3JAACK">Average Quantity</p>
+                <p class="astro-AP3JAACK">Per Serving</p>
+                <p class="astro-AP3JAACK">Per 100g</p>
+            </div>             
+            <div class="energy astro-AP3JAACK">
+                <p class="astro-AP3JAACK">Energy</p>
+                <p class="astro-AP3JAACK">${energyperserving}</p>
+                <p class="astro-AP3JAACK">${energyper100g}</p>    
+            </div>   
+            <div class="protein astro-AP3JAACK">
+                <p class="astro-AP3JAACK">Protein</p>
+                <p class="astro-AP3JAACK">${proteinperserving}</p>
+                <p class="astro-AP3JAACK">${proteinper100g}</p>    
+            </div> 
+            ${(fattotalperserving || fattotalper100g) && renderTemplate`<div class="fat-total astro-AP3JAACK"> 
+                <p class="astro-AP3JAACK">Fat, total</p>
+                <p class="astro-AP3JAACK">${fattotalperserving}</p>
+                <p class="astro-AP3JAACK">${fattotalper100g}</p></div>`} 
+        </div>
+    </div>${renderComponent($$result, "ProductDisclaimer", $$ProductDisclaimer, { "class": "astro-AP3JAACK" })}` }));
 }, "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/[subcategory]/[sku].astro");
 
 const $$file$3 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/our-range/[category]/[subcategory]/[sku].astro";
 const $$url$3 = "/our-range/[category]/[subcategory]/[sku]";
 
-const _page5 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _page6 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   getStaticPaths,
   default: $$sku,
@@ -3533,7 +3751,7 @@ const _page5 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   url: $$url$3
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$Astro$2 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/recipes.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$2 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/recipes.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Recipes = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
   Astro2.self = $$Recipes;
@@ -3544,14 +3762,14 @@ const $$Recipes = createComponent(async ($$result, $$props, $$slots) => {
 const $$file$2 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/recipes.astro";
 const $$url$2 = "/recipes";
 
-const _page6 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _page7 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$Recipes,
   file: $$file$2,
   url: $$url$2
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$Astro$1 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/ebooks.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro$1 = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/ebooks.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$Ebooks = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$Ebooks;
@@ -3573,14 +3791,14 @@ const $$Ebooks = createComponent(async ($$result, $$props, $$slots) => {
 const $$file$1 = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/ebooks.astro";
 const $$url$1 = "/ebooks";
 
-const _page7 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _page8 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$Ebooks,
   file: $$file$1,
   url: $$url$1
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$Astro = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/about.astro", "", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
+const $$Astro = createAstro("C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/about.astro", "https://sapl-iandj.netlify.app/", "file:///C:/Projects-Sandbox/AstroContentful/IandJ2/");
 const $$About = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$About;
@@ -3603,14 +3821,14 @@ const $$About = createComponent(async ($$result, $$props, $$slots) => {
 const $$file = "C:/Projects-Sandbox/AstroContentful/IandJ2/src/pages/about.astro";
 const $$url = "/about";
 
-const _page8 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _page9 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$About,
   file: $$file,
   url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const pageMap = new Map([['node_modules/@astrojs/image/dist/endpoint.js', _page0],['src/pages/index.astro', _page1],['src/pages/contactus.astro', _page2],['src/pages/our-range/index.astro', _page3],['src/pages/our-range/[category]/index.astro', _page4],['src/pages/our-range/[category]/[subcategory]/[sku].astro', _page5],['src/pages/recipes.astro', _page6],['src/pages/ebooks.astro', _page7],['src/pages/about.astro', _page8],]);
+const pageMap = new Map([['node_modules/@astrojs/image/dist/endpoint.js', _page0],['src/pages/index.astro', _page1],['src/pages/contactus.astro', _page2],['src/pages/our-range/index.astro', _page3],['src/pages/our-range/[category]/index.astro', _page4],['src/pages/our-range/[category]/[subcategory]/index.astro', _page5],['src/pages/our-range/[category]/[subcategory]/[sku].astro', _page6],['src/pages/recipes.astro', _page7],['src/pages/ebooks.astro', _page8],['src/pages/about.astro', _page9],]);
 const renderers = [Object.assign({"name":"astro:jsx","serverEntrypoint":"astro/jsx/server.js","jsxImportSource":"astro"}, { ssr: server_default }),];
 
 if (typeof process !== "undefined") {
@@ -3687,7 +3905,7 @@ function deserializeManifest(serializedManifest) {
   };
 }
 
-const _manifest = Object.assign(deserializeManifest({"adapterName":"@astrojs/netlify/functions","routes":[{"file":"","links":[],"scripts":[],"routeData":{"type":"endpoint","route":"/_image","pattern":"^\\/_image$","segments":[[{"content":"_image","dynamic":false,"spread":false}]],"params":[],"component":"node_modules/@astrojs/image/dist/endpoint.js","pathname":"/_image","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6d9d8df7.css","assets/index.00f35ca0.css"],"scripts":[],"routeData":{"route":"/","type":"page","pattern":"^\\/$","segments":[],"params":[],"component":"src/pages/index.astro","pathname":"/","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6d9d8df7.css","assets/about.5ac4b284.css","assets/contactus.d529d2d5.css"],"scripts":[],"routeData":{"route":"/contactus","type":"page","pattern":"^\\/contactus\\/?$","segments":[[{"content":"contactus","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/contactus.astro","pathname":"/contactus","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":[],"scripts":[],"routeData":{"route":"/our-range","type":"page","pattern":"^\\/our-range\\/?$","segments":[[{"content":"our-range","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/our-range/index.astro","pathname":"/our-range","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":[],"scripts":[],"routeData":{"route":"/our-range/[category]","type":"page","pattern":"^\\/our-range\\/([^/]+?)\\/?$","segments":[[{"content":"our-range","dynamic":false,"spread":false}],[{"content":"category","dynamic":true,"spread":false}]],"params":["category"],"component":"src/pages/our-range/[category]/index.astro","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":[],"scripts":[],"routeData":{"route":"/our-range/[category]/[subcategory]/[sku]","type":"page","pattern":"^\\/our-range\\/([^/]+?)\\/([^/]+?)\\/([^/]+?)\\/?$","segments":[[{"content":"our-range","dynamic":false,"spread":false}],[{"content":"category","dynamic":true,"spread":false}],[{"content":"subcategory","dynamic":true,"spread":false}],[{"content":"sku","dynamic":true,"spread":false}]],"params":["category","subcategory","sku"],"component":"src/pages/our-range/[category]/[subcategory]/[sku].astro","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6d9d8df7.css","assets/about.5ac4b284.css"],"scripts":[],"routeData":{"route":"/recipes","type":"page","pattern":"^\\/recipes\\/?$","segments":[[{"content":"recipes","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/recipes.astro","pathname":"/recipes","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6d9d8df7.css","assets/about.5ac4b284.css","assets/ebooks.90dcbdc6.css"],"scripts":[],"routeData":{"route":"/ebooks","type":"page","pattern":"^\\/ebooks\\/?$","segments":[[{"content":"ebooks","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/ebooks.astro","pathname":"/ebooks","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6d9d8df7.css","assets/about.5ac4b284.css","assets/about.3d8ce539.css"],"scripts":[],"routeData":{"route":"/about","type":"page","pattern":"^\\/about\\/?$","segments":[[{"content":"about","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/about.astro","pathname":"/about","_meta":{"trailingSlash":"ignore"}}}],"base":"/","markdown":{"drafts":false,"syntaxHighlight":"shiki","shikiConfig":{"langs":[],"theme":"github-dark","wrap":false},"remarkPlugins":[],"rehypePlugins":[],"remarkRehype":{},"extendDefaultPlugins":false,"isAstroFlavoredMd":false},"pageMap":null,"renderers":[],"entryModules":{"\u0000@astrojs-ssr-virtual-entry":"entry.mjs","C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/@astrojs/image/dist/vendor/squoosh/image-pool.js":"chunks/image-pool.abfa6f7b.mjs","astro:scripts/before-hydration.js":""},"assets":["/assets/about.3d8ce539.css","/assets/about.5ac4b284.css","/assets/about.6d9d8df7.css","/assets/contactus.d529d2d5.css","/assets/ebooks.90dcbdc6.css","/assets/index.00f35ca0.css","/favicon.svg"]}), {
+const _manifest = Object.assign(deserializeManifest({"adapterName":"@astrojs/netlify/functions","routes":[{"file":"","links":[],"scripts":[],"routeData":{"type":"endpoint","route":"/_image","pattern":"^\\/_image$","segments":[[{"content":"_image","dynamic":false,"spread":false}]],"params":[],"component":"node_modules/@astrojs/image/dist/endpoint.js","pathname":"/_image","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6aba8197.css","assets/index.a04035a6.css"],"scripts":[],"routeData":{"route":"/","type":"page","pattern":"^\\/$","segments":[],"params":[],"component":"src/pages/index.astro","pathname":"/","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6aba8197.css","assets/about.b989c7ce.css","assets/about.aef78a02.css","assets/contactus.d529d2d5.css"],"scripts":[],"routeData":{"route":"/contactus","type":"page","pattern":"^\\/contactus\\/?$","segments":[[{"content":"contactus","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/contactus.astro","pathname":"/contactus","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6aba8197.css","assets/about.b989c7ce.css","assets/about.aef78a02.css","assets/index.98c83cc9.css"],"scripts":[],"routeData":{"route":"/our-range","type":"page","pattern":"^\\/our-range\\/?$","segments":[[{"content":"our-range","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/our-range/index.astro","pathname":"/our-range","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6aba8197.css","assets/about.b989c7ce.css","assets/about.aef78a02.css","assets/index.47aa6fa1.css"],"scripts":[],"routeData":{"route":"/our-range/[category]","type":"page","pattern":"^\\/our-range\\/([^/]+?)\\/?$","segments":[[{"content":"our-range","dynamic":false,"spread":false}],[{"content":"category","dynamic":true,"spread":false}]],"params":["category"],"component":"src/pages/our-range/[category]/index.astro","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6aba8197.css","assets/about.b989c7ce.css","assets/about.aef78a02.css","assets/index.3a3626ed.css"],"scripts":[],"routeData":{"route":"/our-range/[category]/[subcategory]","type":"page","pattern":"^\\/our-range\\/([^/]+?)\\/([^/]+?)\\/?$","segments":[[{"content":"our-range","dynamic":false,"spread":false}],[{"content":"category","dynamic":true,"spread":false}],[{"content":"subcategory","dynamic":true,"spread":false}]],"params":["category","subcategory"],"component":"src/pages/our-range/[category]/[subcategory]/index.astro","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6aba8197.css","assets/about.b989c7ce.css","assets/_sku_.41491221.css"],"scripts":[],"routeData":{"route":"/our-range/[category]/[subcategory]/[sku]","type":"page","pattern":"^\\/our-range\\/([^/]+?)\\/([^/]+?)\\/([^/]+?)\\/?$","segments":[[{"content":"our-range","dynamic":false,"spread":false}],[{"content":"category","dynamic":true,"spread":false}],[{"content":"subcategory","dynamic":true,"spread":false}],[{"content":"sku","dynamic":true,"spread":false}]],"params":["category","subcategory","sku"],"component":"src/pages/our-range/[category]/[subcategory]/[sku].astro","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6aba8197.css","assets/about.b989c7ce.css","assets/about.aef78a02.css"],"scripts":[],"routeData":{"route":"/recipes","type":"page","pattern":"^\\/recipes\\/?$","segments":[[{"content":"recipes","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/recipes.astro","pathname":"/recipes","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6aba8197.css","assets/about.b989c7ce.css","assets/about.aef78a02.css","assets/ebooks.90dcbdc6.css"],"scripts":[],"routeData":{"route":"/ebooks","type":"page","pattern":"^\\/ebooks\\/?$","segments":[[{"content":"ebooks","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/ebooks.astro","pathname":"/ebooks","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/about.6aba8197.css","assets/about.b989c7ce.css","assets/about.aef78a02.css","assets/about.3d8ce539.css"],"scripts":[],"routeData":{"route":"/about","type":"page","pattern":"^\\/about\\/?$","segments":[[{"content":"about","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/about.astro","pathname":"/about","_meta":{"trailingSlash":"ignore"}}}],"site":"https://sapl-iandj.netlify.app/","base":"/","markdown":{"drafts":false,"syntaxHighlight":"shiki","shikiConfig":{"langs":[],"theme":"github-dark","wrap":false},"remarkPlugins":[],"rehypePlugins":[],"remarkRehype":{},"extendDefaultPlugins":false,"isAstroFlavoredMd":false},"pageMap":null,"renderers":[],"entryModules":{"\u0000@astrojs-ssr-virtual-entry":"entry.mjs","C:/Projects-Sandbox/AstroContentful/IandJ2/node_modules/@astrojs/image/dist/vendor/squoosh/image-pool.js":"chunks/image-pool.abfa6f7b.mjs","astro:scripts/before-hydration.js":""},"assets":["/assets/_sku_.41491221.css","/assets/about.3d8ce539.css","/assets/about.aef78a02.css","/assets/about.6aba8197.css","/assets/about.b989c7ce.css","/assets/contactus.d529d2d5.css","/assets/ebooks.90dcbdc6.css","/assets/index.3a3626ed.css","/assets/index.a04035a6.css","/assets/index.47aa6fa1.css","/assets/index.98c83cc9.css","/favicon.svg"]}), {
 	pageMap: pageMap,
 	renderers: renderers
 });
