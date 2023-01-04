@@ -28,12 +28,15 @@ const categories = await contentfulClient.getEntries<Category>({
   content_type: "category",
 });
 const cardCategories = categories.items.map((item) => {
-  const { name, displayCard } = item.fields;
+  const { name, displayCard, sortOrder } = item.fields;
   return {
     name,
-    displayCard
+    displayCard,
+    sortOrder
   };
 });
+
+var sortedCats = cardCategories.sort(({sortOrder:a}, {sortOrder:b}) => a-b);
 ---
 
 <Layout pageTitle="Our Range | I&J">
@@ -50,14 +53,14 @@ const cardCategories = categories.items.map((item) => {
   <Title pageTitle="Our Range" />
   <div class="catnav-mobile">
     <select>
-      {cardCategories.map((card) => (
+      {sortedCats.map((card) => (
       (card.displayCard) &&
         <option value="..\${card.name}" selected="">{card.name}</option>
       ))}
     </select>
   </div>
   <div class="catnav-desktop">
-    {cardCategories.map((card) => (
+    {sortedCats.map((card) => (
     (card.displayCard) &&
     <a href="..\${card.name}">
       <p>{card.name}</p>

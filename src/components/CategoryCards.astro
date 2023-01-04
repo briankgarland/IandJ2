@@ -5,22 +5,26 @@ import { contentfulClient } from "../lib/contentful";
 import type { Category } from "../lib/contentful";
 import {slugify} from "../js/utils";
 
+// Get all Categories for Home Page
 const categories = await contentfulClient.getEntries<Category>({
   content_type: "category",
 });
-
 const cardCategories = categories.items.map((item) => {
-  const { name, description, imageUrl, displayCard } = item.fields;
+  const { name, description, imageUrl, displayCard, sortOrder } = item.fields;
   return {
+    sortOrder,
     name,
     description,
     imageUrl,
     displayCard
   };
 });
+
+var sortedCats = cardCategories.sort(({sortOrder:a}, {sortOrder:b}) => a-b);
+
 ---
 <div class="card-wrapper">
-{cardCategories.map((card) => (
+{sortedCats.map((card) => (
   (card.displayCard) &&
 
     <div class="card"> 

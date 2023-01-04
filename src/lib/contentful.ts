@@ -36,6 +36,7 @@ export interface Category {
     footerNav: boolean;
     imageUrl: string;
     displayCard: boolean;
+    sortOrder: number;
 }
 
 export interface Subcategory {
