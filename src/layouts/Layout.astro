@@ -55,11 +55,16 @@ const { pageTitle } = Astro.props;
 	.footer-nav {
 		margin: 40px auto;
 	}
+	.breadcrumbs ol {
+		margin: 20px 0 !important;
+	}
 	.breadcrumbs__item a {
 		text-decoration:none !important;
-		&     li::after {
-      content: '>';
-    }
+		color: black !important;
+		font-size: 12px !important;
+		& li::after {
+      		content: '>' !important;
+    	}
 	}
 	
 	@media (min-width: 768px) {
