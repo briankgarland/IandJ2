@@ -62,8 +62,10 @@ const { pageTitle } = Astro.props;
 		text-decoration:none !important;
 		color: black !important;
 		font-size: 12px !important;
-		& li::after {
+		& ::after {
       		content: '>' !important;
+			font-size: 12px !important;
+			margin: 0 0.5rem !important;
     	}
 	}
 	
