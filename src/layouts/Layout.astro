@@ -35,7 +35,7 @@ const { pageTitle } = Astro.props;
 </html>
 
 
-<style>
+<style lang="scss" is:global>
 	.wrapper {
 		width: calc(100% - 2rem);
 		max-width: 1110px;
@@ -55,6 +55,13 @@ const { pageTitle } = Astro.props;
 	.footer-nav {
 		margin: 40px auto;
 	}
+	.breadcrumbs__item a {
+		text-decoration:none !important;
+		&     li::after {
+      content: '>';
+    }
+	}
+	
 	@media (min-width: 768px) {
 		header {
 			height: 77px;
