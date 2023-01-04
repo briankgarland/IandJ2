@@ -58,16 +58,22 @@ const { pageTitle } = Astro.props;
 	.breadcrumbs ol {
 		margin: 20px 0 !important;
 	}
-	.breadcrumbs__item a {
+	.breadcrumbs__item {
+		a {
 		text-decoration:none !important;
 		color: black !important;
 		font-size: 12px !important;
-		& ::after {
+		}
+		&::after {
       		content: '>' !important;
 			font-size: 12px !important;
 			margin: 0 0.5rem !important;
     	}
 	}
+	.breadcrumbs__item:last-child::after {
+		content: "" !important;
+	}
+
 	
 	@media (min-width: 768px) {
 		header {
