@@ -18,7 +18,11 @@ const pageTitle = "About Us";
     />
   </Breadcrumbs>
   <Title pageTitle={pageTitle} />
-  <div class="text-wrapper">
+  <div class="nav">
+    <div onclick="showhide()" class="nav-1Label" id="nav-1Label">Our History</div>
+    <div onclick="showhide()" class="nav-2Label" id="nav-2Label">News and Media</div>
+  </div>
+  <div class="text-wrapper nav-1" id="nav-1">
     <p>
         In 1910, fisherman George Irvin and Carl Johnson formed I&J to tackle the world's deepest seas in search of the freshest seafood. This legacy lives on over a century later. 
     </p>
@@ -28,10 +32,31 @@ const pageTitle = "About Us";
     <p>
         We sail to the cleanest, pristine oceans of New Zealand and Alaska for our catch. This ensures we responsibly deliver the freshest, most natural tasting seafood for you.
     </p>
-</div>
+  </div>
+  <div class="text-wrapper nav-2" id="nav-2">
+    <h3>REDCYCLE PROGRAM TEMPORARILY ON PAUSE</h3>
+    <br>
+    <h6>Date: 9 December 2022</h6>
+    <br>
+    <p>
+      Simplot the manufacturer of I&J was a founding member and is a long-time supporter of the REDcycle Program which was aimed at offering consumers a simple way to recycle their soft plastic packaging rather than sending it to landfill. As such, we are disappointed by <a href="https://redcycle.net.au/">REDcycle’s announcement in November 2022</a> to pause the program. 
+    </p>
+    <p>
+      Given REDcycle has indicated the program is temporarily on pause we are assessing if it is appropriate to make changes to the REDcycle labelling or Australasian Recycling Label on our IandJ products, which currently instructs people to return soft plastics to the store.
+    </p>
+    <p>
+      However, until an alternate solution is available, consumers are encouraged to put their soft plastics in their home rubbish bin, not in kerbside recycling bins (unless the Curby or NPRS trial is available in your area) as it is not recyclable in that system.
+    </p>
+    <p>
+      Finding long-term solutions that continue to advance recycling initiatives and help us to meet Australia’s National Packaging Targets will require the combined efforts of government, industry, NGOs, packaging manufacturers, waste recovery and recycling industries. Simplot and its brands continue to support and work to advance these efforts.
+    </p>
+  </div>
 </Layout>
 
 <style lang="scss">
+    :global(main) {
+    background-image: none;
+  }
       .text-wrapper {
         display: grid;
         text-align: center;
@@ -40,5 +65,55 @@ const pageTitle = "About Us";
             font-size: 14px;
             margin-bottom: 10px;
         }
-    }
+      }
+      .nav-2 {
+        text-align: left;
+        & a {
+          color: black;
+        }
+      }
+      .nav {
+        display: flex;
+        margin: 0 auto;
+        & .nav-1Label, .nav-2Label {
+          border: 1px solid black;
+          min-width: 250px;
+          padding: 20px 20px;
+          text-align: center;
+          font-size: 18px;
+        }
+      }
+      .nav-2 {
+        display: none;
+      }  
+      .nav-1Label {
+        color: white;
+        background-color: black;
+      }
+      
 </style>
+
+<script is:inline>
+  function showhide() {
+      let nav1 = document.getElementById("nav-1Label");
+      let nav2 = document.getElementById("nav-2Label");
+      let nav1div = document.getElementById("nav-1");
+      let nav2div = document.getElementById("nav-2");
+    
+      if (nav1div.style.display == "none") {
+          nav1div.style.display = "grid";
+          nav2div.style.display = "none";
+          nav1.style.backgroundColor = "black";
+          nav1.style.color = "white";
+          nav2.style.backgroundColor = "white";
+          nav2.style.color = "black";
+      } else {
+          nav1div.style.display = "none";
+          nav2div.style.display = "grid";
+          nav1.style.backgroundColor = "white";
+          nav1.style.color = "black";
+          nav2.style.backgroundColor = "black";
+          nav2.style.color = "white";
+      }
+  }    
+  </script>

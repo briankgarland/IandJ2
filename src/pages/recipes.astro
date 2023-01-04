@@ -17,7 +17,12 @@ const pageTitle = "Recipes";
       label={pageTitle}
     />
   </Breadcrumbs>
-  <Title pageTitle={pageTitle} />
+  <Title pageTitle={pageTitle} usebgImage={false} />
 </Layout>
 
+<style>
+:global(main) {
+  background-image: none;
+}
+</style>
 
