@@ -22,12 +22,13 @@ const pageTitle = "Contact Us";
     We really are humbled by your feedback, it keeps us inspired to do our very best!<br>
     If there is something you’d like to share with us please fill out the form below.
   </h4>
-  <h4>
-    <span>
-      SEND ENQUIRY
-    </span>
-  </h4>
-
+  <div>
+    <h4 class="send-text">
+      <span>
+        SEND ENQUIRY
+      </span>
+    </h4>
+  </div>
   <div class="form-wrapper">
     <form action="" method="POST" style="display:block;">
       <input type=hidden name='captcha_settings' value='{"keyname":"SAPL","fallback":"true","orgId":"00D60000000J7C2","ts":""}'>
@@ -137,8 +138,11 @@ const pageTitle = "Contact Us";
 </Layout>
 
 <style lang="scss">
+  :global(main) {
+    background-image: none;
+  }
   h4 {
-    margin: 40px auto;
+    margin: 10px auto;
     text-align: center;
   }
   .form-wrapper {
@@ -162,5 +166,22 @@ const pageTitle = "Contact Us";
       display: inline-block;
       margin-bottom: .5rem;
     }
+  }
+  span {
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    background: #fff;
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+  .send-text::before {
+    content: "";
+    background: #3a3938;
+    position: relative;
+    width: 100%;
+    height: 1px;
+    display: inline-block;
+    top: 15px;
   }
 </style>

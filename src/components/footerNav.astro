@@ -2,12 +2,25 @@
 import Logo from '../components/logo.astro';
 import { contentfulClient } from "../lib/contentful";
 import type { Category } from "../lib/contentful";
+import type { Subcategory } from "../lib/contentful";
 
+// Get Categories
 const categories = await contentfulClient.getEntries<Category>({
   content_type: "category",
 });
-
 const prodCategories = categories.items.map((item) => {
+  const { name, footerNav } = item.fields;
+  return {
+    name,
+    footerNav
+  };
+});
+
+// Get Subcategories
+const subcategories = await contentfulClient.getEntries<Subcategory>({
+  content_type: "subcategory",
+});
+const prodSubCategories = subcategories.items.map((item) => {
   const { name, footerNav } = item.fields;
   return {
     name,
@@ -18,25 +31,89 @@ const prodCategories = categories.items.map((item) => {
 
 <nav class="footer-nav">
   <div class="logo"><Logo /></div>
-    <ul>
-        {prodCategories.map((cats) => (
-        (cats.footerNav) &&
+  <div class="menu-columns">
+    <ul style="padding-inline-start: 0;" class="cat-links">
+          <li>
+            <a href={`/our-range/about/`}>
+              <h3>About</h3>
+            </a>
+          </li>
+          {prodCategories.map((cats) => (
+          (cats.footerNav) &&
           <li>
               <a href={`/our-range/${cats.name}/`}>
               <h3>{cats.name}</h3>
               
               </a>
-          </li>       
-        ))}
+          </li>      
+          ))}
+          <li>
+            <a href={`/our-range/recipes/`}>
+              <h3>Recipes</h3>
+            </a>
+          </li> 
     </ul>
+    <div class="subcat-links">
+      <ul style="padding-inline-start: 0;" class="page-links">
+        <li>
+          <a href={`/`}>
+            <h3>Home</h3>
+          </a>
+        </li>
+        <li>
+          <a href={`/our-range/`}>
+            <h3>Products</h3>
+          </a>
+        </li>
+        <li>
+          <a href={`/our-range/about/`}>
+            <h3>About Us</h3>
+          </a>
+        </li>
+        <li>
+          <a href={`/our-range/recipes/`}>
+            <h3>Recipes</h3>
+          </a>
+        </li>
+      </ul>
+      <!-- <ul>
+        {prodSubCategories.map((subcats) => (
+          (subcats.footerNav) &&
+          <li>
+              <a href={`/our-range/${subcats.name}/`}>
+              <h3>{subcats.name}</h3>
+              
+              </a>
+          </li>      
+          ))}
+      </ul> -->
+    </div>
+  </div>
 </nav>
  
 <style>
-  .footer-nav {
-    margin: 10px 0px;
-  }
+.footer-nav {
+  margin: 10px 0px;
+}
 .logo {
   width: 89px;
+}
+.cat-links,.page-links {
+  display: none;
+}
+@media (min-width: 768px) {
+  /* ul {
+    border: 1px solid red;
+  } */
+.cat-links{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.subcat-links{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 a {
   text-decoration: none;
@@ -45,5 +122,19 @@ a {
 }
 li {
   list-style-type: none;
+}
+.page-links {
+  display: block;
+  margin-top: 20px;
+  & a {
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+  }
+  & h3 {
+    margin-top: 8px;
+    font-weight: 200;
+  }
+}
 }
 </style>
