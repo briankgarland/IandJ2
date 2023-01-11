@@ -77,3 +77,28 @@ main {
 .card:hover, .card:focus, card:active {
   box-shadow: 0 0 5px 0 rgba(0,0,0,.65) !important;
 }
+
+/* Swiper Overrides */
+.swiper {
+  width: 100vw;
+  height: 400px;
+  background-color: #fdfaf5;
+  transform: translateY(-100px);
+
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  position: relative;
+  right: 50%;
+}
+.swiper-button-prev, .swiper-button-next {
+  color: #d51805;
+  opacity: 0;
+}
+.swiper-button-prev {
+  left: 0;
+}
+.swiper-button-next {
+  right: 0;
+}

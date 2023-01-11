@@ -13,6 +13,7 @@ export interface Product {
     claim: any;
     displayCard: boolean;
     displayNew: boolean;
+    homeCarousel: boolean;
     packSize: string;
     servingSize: string;
     servingsPerPackage: string;

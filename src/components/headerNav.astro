@@ -10,18 +10,22 @@ const categories = await contentfulClient.getEntries<Category>({
 });
 
 const prodCategories = categories.items.map((item) => {
-  const { name, headerNav } = item.fields;
+  const { name, headerNav, sortOrder } = item.fields;
   return {
     name,
-    headerNav
+    headerNav,
+    sortOrder,
   };
 });
+
+var sortedCats = prodCategories.sort(({sortOrder:a}, {sortOrder:b}) => a-b);
+
 ---
 
 <nav class="header-nav">
     <div class="logo"><Logo /></div>
     <ul class="cat-nav">
-        {prodCategories.map((cats) => (
+        {sortedCats.map((cats) => (
         (cats.headerNav) &&
         <li>
             <a href={`/our-range/${cats.name}/`}>

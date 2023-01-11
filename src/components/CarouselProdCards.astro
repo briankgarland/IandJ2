@@ -1,0 +1,114 @@
+---
+import { contentfulClient } from "../lib/contentful";
+import type { Product } from "../lib/contentful";
+
+const products = await contentfulClient.getEntries<Product>({
+  content_type: "product",
+});
+
+const cardProducts = products.items.map((item) => {
+  const { sku, name, description, imageurl, category, subcategory, displayCard, displayNew, homeCarousel } = item.fields;
+  return {
+    sku,
+    name,
+    description,
+    imageurl,
+    category,
+    subcategory,
+    displayCard,
+    displayNew,
+    homeCarousel,
+  };
+});
+
+const { subcat } = Astro.props;
+const filteredProd = products.items.filter(prod => prod.fields.homeCarousel === true);
+
+---
+
+<h2 class="carousel-title">Our Products</h2>
+<div class="swiper-wrapper">
+  {filteredProd.map((card) => (
+  (card.fields.displayCard) &&
+      <div class="swiper-slide">
+        <a href={`/our-range/${card.fields.category}/${card.fields.subcategory}/${card.fields.sku}/`}>
+          {card.fields.displayNew && (<img src="https://iandj.com.au/-/media/project/sapl/brands/australia/iandj/images/icons/new.svg" class="new">)}
+          <div class="image-wrapper">
+            <img src={card.fields.imageurl} alt={card.fields.name}>
+          </div>
+          <h2>{card.fields.name}</h2>
+        </a>
+      </div>
+  ))}
+</div>
+
+
+
+
+<style>
+
+  .carousel-title {
+    text-align: center;
+    font-size: 24px;
+    color: #d51805;
+  }
+  .card-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  background-color: #fdfaf5;
+}
+.card {
+  background-color: #fff;
+  width: 350px;
+  position: relative;
+  border: 1px solid #d2d2d2;
+  text-align: center;
+  box-shadow: 0 0 5px 0 rgb(0,0,0 / 25%);
+  margin-bottom: 20px;
+  padding: 20px;
+  overflow: inherit;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+h2 {
+  color: #000;
+  position: relative;
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 10px;
+  text-align: center;
+}
+p {
+  min-height: 125px;
+  padding-bottom: 40px;
+  color: black;
+  font-size: 14px;
+  
+}
+.image-wrapper {
+  display: flex;
+  height: 275px;
+  justify-content: center;
+}
+img {
+	width: 150px;
+  object-fit: contain;
+}
+.new {
+  position: absolute;
+  width: 40px;
+  height: auto;
+  top: 10px;
+  left: 30px;
+}
+.swiper-button-prev, .swiper-button-next {
+  color: #d51805;
+}
+
+</style>
+ 
